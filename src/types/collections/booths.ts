@@ -11,7 +11,9 @@ type booths = {
   icon: string;
   description: string;
   rarity: rarity;
-  hidden?: boolean;
+  hidden: boolean;
+
+  rap: number | null;
 };
 
 export default booths;
