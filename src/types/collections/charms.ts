@@ -19,6 +19,7 @@ type charms = {
   icon: string;
 
   tiers: tiers[];
+  rap: number | null;
 };
 
 export default charms;

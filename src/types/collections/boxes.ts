@@ -14,9 +14,12 @@ type boxes = {
   collection: "Boxes";
   capacity: number;
   name: string;
+  configName: string;
   description: string;
   rarity: rarity;
   icons: icons[];
+
+  rap: number | null;
 };
 
 export default boxes;

@@ -7,6 +7,9 @@ import image from "./other/getImageURL";
 import activeClanBattle from "./clans/getActiveClanBattle";
 import getRAP from "./other/getRAP";
 import getExist from "./other/getExist";
+import getBooths from "./collections/getCollection/getBooths";
+import getBoxes from "./collections/getCollection/getBoxes";
+import getBuffs from "./collections/getCollection/getBuffs";
 
 export {
   clan,
@@ -18,4 +21,7 @@ export {
   activeClanBattle,
   getRAP,
   getExist,
+  getBooths,
+  getBoxes,
+  getBuffs,
 };
