@@ -1,8 +1,12 @@
 type productIds = {
-  [index: string]: number;
+  [index: string]: number | undefined;
 };
 
-type pets = [string, number, string?];
+type pets = {
+  name: string;
+  chance: number;
+  notification: string | null;
+};
 
 type rarity = {
   number: number;
@@ -12,34 +16,26 @@ type rarity = {
 
 type eggs = {
   collection: "Eggs";
-  category:
-    | "Exclusive Eggs"
-    | "Update 1"
-    | "Update 2"
-    | "Update 3"
-    | "Update 4"
-    | "Update 5"
-    | "Release"
-    | "Machine Eggs"
-    | "Update 6"
-    | string;
+  category: string;
 
   name: string;
-  rarity?: rarity;
-  disableGold?: boolean;
-  disableRainbow?: boolean;
-  rainbowChance?: number;
-  shinyChance?: number;
-  goldChance?: number;
-  disableModifiers?: boolean;
+  configName: string;
+  rarity: rarity | null;
+  disableGold: boolean;
+  disableRainbow: boolean;
+  rainbowChance: number | null;
+  shinyChance: number | null;
+  goldChance: number | null;
+  disableModifiers: boolean;
   icon: string;
   pets: pets[];
 
-  eggNumber?: number;
-  worldNumber?: number;
-  currency?: string;
+  eggNumber: number | null;
+  worldNumber: number | null;
+  currency: string | null;
 
-  productIds?: productIds;
+  productIds: productIds;
+  rap: number | null;
 };
 
 export default eggs;

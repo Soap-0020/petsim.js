@@ -20,6 +20,7 @@ const getBooths = async () => {
         name: booth.configData.DisplayName,
         icon: booth.configData.Icon,
         description: booth.configData.Desc,
+        configName: booth.configName,
         rarity: {
           number: booth.configData.Rarity.RarityNumber,
           name: booth.configData.Rarity.DisplayName,

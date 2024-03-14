@@ -8,7 +8,7 @@ const getClans = async ({
   pageSize = 10,
   sort = "Points",
   sortOrder = "desc",
-}: searchDetails) => {
+}: searchDetails = {}) => {
   const data = await fetch(
     `https://biggamesapi.io/api/clans?page=${page}&pageSize=${pageSize}&sort=${sort}&sortOrder=${sortOrder}`
   );

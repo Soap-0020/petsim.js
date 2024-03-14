@@ -1,5 +1,5 @@
 type rainData = {
-  lightEmission: number;
+  lightEmission: number | null;
 };
 
 type tiers = {
@@ -10,8 +10,7 @@ type tiers = {
   value: number;
   name: string;
   tinyImage: string;
-
-  rainData?: rainData;
+  rainData: rainData;
 };
 
 type bagTiers = {
@@ -29,14 +28,15 @@ type currency = {
   category: "Currency";
   collection: "Currency";
   name: string;
-  isWorldCurrency?: boolean;
+  isWorldCurrency: boolean;
   description: string;
   tradeable: boolean;
   maxAmount: number;
+  configName: string;
 
   rarity: rarity;
   tiers: tiers[];
-  bagTiers: bagTiers;
+  bagTiers: bagTiers[];
 };
 
 export default currency;

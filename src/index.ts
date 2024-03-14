@@ -10,6 +10,9 @@ import getExist from "./other/getExist";
 import getBooths from "./collections/getCollection/getBooths";
 import getBoxes from "./collections/getCollection/getBoxes";
 import getBuffs from "./collections/getCollection/getBuffs";
+import getCharms from "./collections/getCollection/getCharms";
+import getCurrency from "./collections/getCollection/getCurrency";
+import getEggs from "./collections/getCollection/getEggs";
 
 export {
   clan,
@@ -24,4 +27,7 @@ export {
   getBooths,
   getBoxes,
   getBuffs,
+  getCharms,
+  getCurrency,
+  getEggs,
 };

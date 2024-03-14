@@ -41,7 +41,7 @@ type battle = {
 };
 
 type battles = {
-  [index: string]: battle;
+  [index: string]: battle | undefined;
 };
 
 type fullClan = {

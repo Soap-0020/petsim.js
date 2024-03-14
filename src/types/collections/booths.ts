@@ -8,6 +8,7 @@ type booths = {
   category: "Booths";
   collection: "Booths";
   name: string;
+  configName: string;
   icon: string;
   description: string;
   rarity: rarity;

@@ -9,6 +9,9 @@ type tiers = {
   name: string;
   power: number;
   rarity: rarity;
+
+  tier: number;
+  rap: number | null;
 };
 
 type charms = {
@@ -17,9 +20,9 @@ type charms = {
   baseTier: number;
   maxTier: number;
   icon: string;
+  configName: string;
 
   tiers: tiers[];
-  rap: number | null;
 };
 
 export default charms;
