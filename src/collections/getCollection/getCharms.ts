@@ -14,7 +14,7 @@ const getCharms = async () => {
     });
 
     const formattedJson: charms[] = json.data.map((charm: any) => {
-      let tier = 0;
+      let tier = charm.configData.BaseTier - 1;
       return {
         category: "Charms",
         collection: "Charms",

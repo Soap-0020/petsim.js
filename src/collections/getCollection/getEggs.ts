@@ -25,6 +25,9 @@ const getEggs = async () => {
         collection: "Eggs",
         category: egg.category,
 
+        overrideCost: egg.configData.overrideCost ?? null,
+        isCustomEgg: egg.configData.isCustomEgg ?? false,
+
         name: egg.configData.name,
         configName: egg.configName,
         disableGold: egg.configData.disableGold ?? false,

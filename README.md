@@ -1,9 +1,20 @@
-# How Do I Install?
+# What Is petsim.js?
 
-> Run "npm install petsim.js"
+It is a JavaScript/TypeScript API wrapper for the pet simulator web API.
 
-# What's Included
+# How Do I Install it?
 
-> Currently, you can lookup clans/clan battles, get item images by asset ids, get rap values, get exist counts and view the collections. This comes with full typescript support and types.
+Run "npm install petsim.js"
 
-> > I'm currently implementing support for viewing individual collections, currently you can for boosts, achievements, boxes, booths, buffs, charms, currency and eggs
+# Usage
+
+## Getting Details Of A Clan
+
+```typescript
+import { clan } from "petsim.js"; // Or Using The require() function
+
+(async () => {
+  const clans = await clan("HIPM"); // Get details of the "HIPM" clan
+  console.log(clans); // Log out the result
+})();
+```

@@ -13,7 +13,7 @@ import getBuffs from "./collections/getCollection/getBuffs";
 import getCharms from "./collections/getCollection/getCharms";
 import getCurrency from "./collections/getCollection/getCurrency";
 import getEggs from "./collections/getCollection/getEggs";
-
+import getEnchants from "./collections/getCollection/getEnchants";
 export {
   clan,
   clans,
@@ -29,5 +29,6 @@ export {
   getBuffs,
   getCharms,
   getCurrency,
+  getEnchants,
   getEggs,
 };

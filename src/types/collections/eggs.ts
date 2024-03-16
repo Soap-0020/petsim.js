@@ -36,6 +36,8 @@ type eggs = {
 
   productIds: productIds;
   rap: number | null;
+  overrideCost: number | null;
+  isCustomEgg: boolean;
 };
 
 export default eggs;
