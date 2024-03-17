@@ -31,6 +31,19 @@ type pointContributions = {
   points: number;
 };
 
+type contributions = {
+  [index: string]: number | undefined;
+};
+
+type goals = {
+  type: number;
+  amount: number;
+  stars: number;
+  progress: number;
+  tier: number;
+  contributions: contributions;
+};
+
 type battle = {
   processedAwards: boolean;
   awardUserIds: number[];
@@ -38,6 +51,8 @@ type battle = {
   points: number;
   pointContributions: pointContributions[];
   earnedMedal: "Bronze" | "Silver" | "Gold" | null;
+
+  goals: goals[];
 };
 
 type battles = {

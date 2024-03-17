@@ -25,6 +25,25 @@ const getClan = async (tag: string) => {
             };
           }
         ),
+        goals: foundBattle.Goals
+          ? foundBattle.Goals.map((goal: any) => {
+              const contributions: { [key: string]: any } = {};
+
+              Object.keys(goal.Contributions).forEach((contribution: any) => {
+                contributions[contribution.replace("u", "")] =
+                  goal.Contributions[contribution];
+              });
+
+              return {
+                type: goal.Type,
+                amount: goal.Amount,
+                stars: goal.Stars,
+                progress: goal.Progress,
+                tier: goal.Tier,
+                contributions: contributions,
+              };
+            })
+          : [],
       };
       battles[battle] = data;
     });
