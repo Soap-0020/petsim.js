@@ -18,3 +18,14 @@ import { clan } from "petsim.js"; // Or Using The require() function
   console.log(clans); // Log out the result
 })();
 ```
+
+## Hooks/Events
+
+```typescript
+import { onExistChange } from "petsim.js"; // Or Using The require() function
+
+onExistChange((after, before) => {
+  // Listen for exist changes
+  if (after.exist < 100) console.log(after, before); // When exist changes of a pet, check if exist is less then 100, if so, log it
+});
+```

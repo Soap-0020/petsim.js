@@ -14,6 +14,8 @@ import getCharms from "./collections/getCollection/getCharms";
 import getCurrency from "./collections/getCollection/getCurrency";
 import getEggs from "./collections/getCollection/getEggs";
 import getEnchants from "./collections/getCollection/getEnchants";
+import onExistChange from "./other/onExistChange";
+
 export {
   clan,
   clans,
@@ -31,4 +33,5 @@ export {
   getCurrency,
   getEnchants,
   getEggs,
+  onExistChange,
 };
