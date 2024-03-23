@@ -1,6 +1,6 @@
 {
   "name": "petsim.js",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A JavaScript/TypeScript API wrapper for the pet simulator web API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Soap-0020/petsim.js"
+    "url": "git+https://github.com/Soap-0020/petsim.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.28"
