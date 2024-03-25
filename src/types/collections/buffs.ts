@@ -6,6 +6,7 @@ type buffs = {
   configName: string;
 
   rap: number | null;
+  rawData: any;
 };
 
 export default buffs;

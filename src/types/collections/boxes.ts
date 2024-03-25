@@ -20,6 +20,7 @@ type boxes = {
   icons: icons[];
 
   rap: number | null;
+  rawData: any;
 };
 
 export default boxes;

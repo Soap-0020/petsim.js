@@ -28,6 +28,8 @@ type achievements = {
   name: string;
   configName: string;
   tiers: tiers[];
+
+  rawData: any;
 };
 
 export default achievements;

@@ -38,6 +38,8 @@ type eggs = {
   rap: number | null;
   overrideCost: number | null;
   isCustomEgg: boolean;
+
+  rawData: any;
 };
 
 export default eggs;

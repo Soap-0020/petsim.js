@@ -1,11 +1,7 @@
-type reward = {
-  id: string;
-};
-
 type rewards = {
-  bronze: reward[];
-  silver: reward[];
-  gold: reward[];
+  bronze: string[];
+  silver: string[];
+  gold: string[];
 };
 
 type activeClanBattle = {
@@ -15,6 +11,8 @@ type activeClanBattle = {
   startTime: number;
   name: string;
   rewards: rewards;
+
+  rawData: any;
 };
 
 export default activeClanBattle;

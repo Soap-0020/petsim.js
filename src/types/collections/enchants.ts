@@ -25,6 +25,7 @@ type enchants = {
   productId: number | null;
 
   tiers: tiers[];
+  rawData: any;
 };
 
 export default enchants;

@@ -23,6 +23,7 @@ type charms = {
   configName: string;
 
   tiers: tiers[];
+  rawData: any;
 };
 
 export default charms;

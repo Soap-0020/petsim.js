@@ -6,6 +6,7 @@ type clanOverview = {
   countryCode: string;
   members: number;
   points: number | null;
+  rawData: any;
 };
 
 export default clanOverview;

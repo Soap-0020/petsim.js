@@ -37,6 +37,8 @@ type currency = {
   rarity: rarity;
   tiers: tiers[];
   bagTiers: bagTiers[];
+
+  rawData: any;
 };
 
 export default currency;

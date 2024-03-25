@@ -1,13 +1,7 @@
-import apiError from "../errors/apiError";
-import jsonData from "../types/jsonData";
+import getURL from "../getURL";
 
-const getCollections = async (): Promise<String[]> => {
-  const data = await fetch("https://biggamesapi.io/api/collections");
-  const json = (await data.json()) as jsonData;
-
-  if (json.data) return json.data;
-  else if (json.error) throw new apiError(json.error.message);
-  throw new Error("Unknown Error");
+const getCollections = async () => {
+  return await getURL("https://biggamesapi.io/api/collections");
 };
 
 export default getCollections;

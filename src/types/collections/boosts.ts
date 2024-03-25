@@ -5,6 +5,7 @@ type boosts = {
   configName: string;
   icon: string;
   maximumPercent: number;
+  rawData: any;
 };
 
 export default boosts;

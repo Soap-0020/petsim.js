@@ -1,60 +1,56 @@
 import apiError from "../../errors/apiError";
+import getImageURL from "../../other/getImageURL";
 import getRAP from "../../other/getRAP";
 import enchants from "../../types/collections/enchants";
 import jsonData from "../../types/jsonData";
+import getCollection from "../getCollection";
 
 const getEnchants = async () => {
-  const data = await fetch("https://biggamesapi.io/api/collection/Enchants");
-  const json = (await data.json()) as jsonData;
+  const data = await getCollection("Enchants");
 
-  if (json.error) throw new apiError(json.error.message);
-  if (json.data) {
-    const rapData = (await getRAP()).filter((item) => {
-      return item.category == "Enchant";
-    });
+  const rapData = (await getRAP()).filter((item) => {
+    return item.category == "Enchant";
+  });
 
-    const formattedJson: enchants[] = json.data.map((enchant: any) => {
-      let tier = enchant.configData.BaseTier - 1;
-      return {
-        collection: "Enchants",
-        category: enchant.category,
-        configName: enchant.configName,
-        baseTier: enchant.configData.BaseTier,
-        maxTier: enchant.configData.MaxTier,
-        diminishPowerThreshold:
-          enchant.configData.DiminishPowerThreshold ?? null,
-        productId: enchant.configData.ProductId ?? null,
+  return data.map((enchant: any) => {
+    let tier = enchant.configData.BaseTier - 1;
 
-        tiers: enchant.configData.Tiers.map((tierData: any) => {
-          tier++;
-          return {
-            rarity: {
-              number: tierData.Rarity.RarityNumber,
-              name: tierData.Rarity.DisplayName,
-              announce: tierData.Rarity.Announce,
-            },
-            power: tierData.Power,
-            description: tierData.Desc,
-            icon: tierData.Icon,
-            name: tierData.DisplayName,
-            tier: tier,
+    return {
+      collection: "Enchants",
+      category: enchant.category,
+      configName: enchant.configName,
+      baseTier: enchant.configData.BaseTier,
+      maxTier: enchant.configData.MaxTier,
+      diminishPowerThreshold: enchant.configData.DiminishPowerThreshold ?? null,
+      productId: enchant.configData.ProductId ?? null,
 
-            rap:
-              rapData.find((rapItem) => {
-                return (
-                  rapItem.id == enchant.configName.split("| ")[1] &&
-                  rapItem.tier == tier
-                );
-              })?.rap ?? null,
-          };
-        }),
-      };
-    });
+      tiers: enchant.configData.Tiers.map((tierData: any) => {
+        tier++;
+        return {
+          rarity: {
+            number: tierData.Rarity.RarityNumber,
+            name: tierData.Rarity.DisplayName,
+            announce: tierData.Rarity.Announce,
+          },
+          power: tierData.Power,
+          description: tierData.Desc,
+          icon: getImageURL(tierData.Icon),
+          name: tierData.DisplayName,
+          tier: tier,
 
-    return formattedJson;
-  }
+          rap:
+            rapData.find((rapItem) => {
+              return (
+                rapItem.id == enchant.configName.split("| ")[1] &&
+                rapItem.tier == tier
+              );
+            })?.rap ?? null,
+        } as enchants["tiers"][number];
+      }),
 
-  throw new Error("Unknown Error");
+      rawData: enchant,
+    } as enchants;
+  }) as enchants[];
 };
 
 export default getEnchants;

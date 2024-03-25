@@ -1,28 +1,21 @@
-import apiError from "../../errors/apiError";
+import getImageURL from "../../other/getImageURL";
 import boosts from "../../types/collections/boosts";
-import jsonData from "../../types/jsonData";
+import getCollection from "../getCollection";
 
 const getBoosts = async () => {
-  const data = await fetch("https://biggamesapi.io/api/collection/Boosts");
-  const json = (await data.json()) as jsonData;
+  const data = await getCollection("Boosts");
 
-  if (json.error) throw new apiError(json.error.message);
-  if (json.data) {
-    const formattedJson: boosts[] = json.data.map((boost: any) => {
-      return {
-        name: boost.configData.DisplayName,
-        category: "Boosts",
-        collection: "Boosts",
-        configName: boost.configName,
-        icon: boost.configData.Icon,
-        maximumPercent: boost.configData.MaximumPercent,
-      };
-    });
-
-    return formattedJson;
-  }
-
-  throw new Error("Unknown Error");
+  return data.map((boost: any) => {
+    return {
+      name: boost.configData.DisplayName,
+      category: "Boosts",
+      collection: "Boosts",
+      configName: boost.configName,
+      icon: getImageURL(boost.configData.Icon),
+      maximumPercent: boost.configData.MaximumPercent,
+      rawData: boost,
+    } as boosts;
+  }) as boosts[];
 };
 
 export default getBoosts;

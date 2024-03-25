@@ -78,6 +78,8 @@ type fullClan = {
   countryCode: string;
   lastKickTimestamp: number | null;
   medals: medals;
+
+  rawData: any;
 };
 
 export default fullClan;

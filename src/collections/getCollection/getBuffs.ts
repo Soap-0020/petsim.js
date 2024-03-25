@@ -1,37 +1,30 @@
-import apiError from "../../errors/apiError";
 import getRAP from "../../other/getRAP";
 import buffs from "../../types/collections/buffs";
-import jsonData from "../../types/jsonData";
+import getCollection from "../getCollection";
 
 const getBuffs = async () => {
-  const data = await fetch("https://biggamesapi.io/api/collection/Buffs");
-  const json = (await data.json()) as jsonData;
+  const data = await getCollection("Buffs");
 
-  if (json.error) throw new apiError(json.error.message);
-  if (json.data) {
-    const rapData = (await getRAP()).filter((item) => {
-      return item.category == "Misc";
-    });
+  const rapData = (await getRAP()).filter((item) => {
+    return item.category == "Misc";
+  });
 
-    const formattedJson: buffs[] = json.data.map((buff: any) => {
-      return {
-        category: "Buffs",
-        collection: "Buffs",
-        length: buff.configData.Length,
-        name: buff.configData.DisplayName,
-        configName: buff.configName,
+  return data.map((buff: any) => {
+    return {
+      category: "Buffs",
+      collection: "Buffs",
+      length: buff.configData.Length,
+      name: buff.configData.DisplayName,
+      configName: buff.configName,
 
-        rap:
-          rapData.find((item) => {
-            return item.id == buff.configData.DisplayName;
-          })?.rap ?? null,
-      };
-    });
+      rap:
+        rapData.find((item) => {
+          return item.id == buff.configData.DisplayName;
+        })?.rap ?? null,
 
-    return formattedJson;
-  }
-
-  throw new Error("Unknown Error");
+      rawData: buff,
+    } as buffs;
+  }) as buffs[];
 };
 
 export default getBuffs;

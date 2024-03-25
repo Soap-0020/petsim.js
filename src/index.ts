@@ -16,6 +16,8 @@ import getEggs from "./collections/getCollection/getEggs";
 import getEnchants from "./collections/getCollection/getEnchants";
 import onExistChange from "./other/onExistChange";
 import onRapChange from "./other/onRapChange";
+import getCollection from "./collections/getCollection";
+import getFishingRods from "./collections/getCollection/getFishingRods";
 
 export {
   clan,
@@ -36,4 +38,6 @@ export {
   getEggs,
   onExistChange,
   onRapChange,
+  getCollection,
+  getFishingRods,
 };

@@ -15,6 +15,7 @@ type booths = {
   hidden: boolean;
 
   rap: number | null;
+  rawData: any;
 };
 
 export default booths;
