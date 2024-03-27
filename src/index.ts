@@ -18,6 +18,7 @@ import onExistChange from "./other/onExistChange";
 import onRapChange from "./other/onRapChange";
 import getCollection from "./collections/getCollection";
 import getFishingRods from "./collections/getCollection/getFishingRods";
+import getActiveHuges from "./other/getActiveHuges";
 
 export {
   clan,
@@ -40,4 +41,5 @@ export {
   onRapChange,
   getCollection,
   getFishingRods,
+  getActiveHuges,
 };

@@ -29,3 +29,14 @@ onExistChange((after, before) => {
   if (after.exist < 100) console.log(after, before); // When exist changes of a pet, check if exist is less then 100, if so, log it
 });
 ```
+
+## Other
+
+```typescript
+import { getActiveHuges } from "petsim.js"; // Or Using The require() function
+
+(async () => {
+  const activeHuges = await getActiveHuges(); // Fetch active huges
+  console.log(activeHuges); // Example: [ 'Huge Koi Fish', 'Huge Bee', 'Huge Bearserker' ]
+})();
+```
