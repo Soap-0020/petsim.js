@@ -1,12 +1,8 @@
+import rarity from "../rarity";
+
 type icons = {
   name: string;
   icon: string;
-};
-
-type rarity = {
-  number: number;
-  name: string;
-  announce: boolean;
 };
 
 type boxes = {

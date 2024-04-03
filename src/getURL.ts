@@ -6,7 +6,7 @@ const getURL = async (url: string) => {
   const data = await fetch(url);
   const json: jsonData = await data.json();
 
-  if (json.error) throw new apiError(json.error.message);
+  if (json.error) throw new apiError(json.error);
   if (json.data) return json.data;
   throw new unknownError();
 };

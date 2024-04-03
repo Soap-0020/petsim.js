@@ -1,8 +1,4 @@
-type rarity = {
-  number: number;
-  name: string;
-  announce: boolean;
-};
+import rarity from "../rarity";
 
 type tiers = {
   description: string;

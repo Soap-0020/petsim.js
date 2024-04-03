@@ -1,3 +1,5 @@
+import rarity from "../rarity";
+
 type rainData = {
   lightEmission: number | null;
 };
@@ -16,12 +18,6 @@ type tiers = {
 type bagTiers = {
   value: number;
   image: string;
-};
-
-type rarity = {
-  number: number;
-  name: string;
-  announce: boolean;
 };
 
 type currency = {

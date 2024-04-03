@@ -1,8 +1,6 @@
-import apiError from "../../errors/apiError";
 import getImageURL from "../../other/getImageURL";
 import getRAP from "../../other/getRAP";
 import enchants from "../../types/collections/enchants";
-import jsonData from "../../types/jsonData";
 import getCollection from "../getCollection";
 
 const getEnchants = async () => {

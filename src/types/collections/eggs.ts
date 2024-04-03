@@ -1,3 +1,5 @@
+import rarity from "../rarity";
+
 type productIds = {
   [index: string]: number | undefined;
 };
@@ -6,12 +8,6 @@ type pets = {
   name: string;
   chance: number;
   notification: string | null;
-};
-
-type rarity = {
-  number: number;
-  name: string;
-  announce: boolean;
 };
 
 type eggs = {

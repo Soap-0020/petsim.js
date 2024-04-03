@@ -1,13 +1,8 @@
-import EventEmitter from "events";
 import existData from "../types/existData";
 import getExist from "./getExist";
 import existCallback from "../types/existCallback";
 
 const onExistChange = (callback: existCallback) => {
-  const emitter = new EventEmitter();
-
-  emitter.on("launch", callback);
-
   (async () => {
     let index = 0;
     const cache: existData[] = [];
@@ -22,24 +17,24 @@ const onExistChange = (callback: existCallback) => {
 
         if (!foundCache) {
           cache.push(pet);
+
           if (index > 0) {
             const newPet = { ...pet };
             pet.exist = 0;
-            emitter.emit("launch", newPet, pet);
-            console.log(index);
+            callback(newPet, pet);
           }
 
           continue;
         }
 
         if (foundCache.exist !== pet.exist) {
-          emitter.emit("launch", pet, foundCache);
+          callback(pet, foundCache);
 
           foundCache.exist = pet.exist;
         }
       }
       index++;
-      await new Promise((e) => setTimeout(e, 60_000));
+      await new Promise((e) => setTimeout(e, 20_000));
     }
   })();
 };
