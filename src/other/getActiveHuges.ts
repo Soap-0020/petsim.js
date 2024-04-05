@@ -1,6 +1,7 @@
 import getEggs from "../collections/getCollection/getEggs";
 
 const getActiveHuges = async (): Promise<string[]> => {
+  throw new Error("⚠️ DO NOT USE. WAITING ON API ACCESS");
   const eggs = await getEggs();
 
   return eggs

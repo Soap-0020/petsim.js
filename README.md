@@ -33,6 +33,8 @@ onExistChange((after, before) => {
 ## Other
 
 ```typescript
+⚠️ DO NOT USE. WAITING ON API ACCESS
+
 import { getActiveHuges } from "petsim.js"; // Or Using The require() function
 
 (async () => {

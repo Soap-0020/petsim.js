@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import fishingRods from "../../types/collections/fishingRods";
 import getImageURL from "../../other/getImageURL";
 
-const getFishingRods = async () => {
+const getFishingRods = async (): Promise<fishingRods[]> => {
   const data = await getCollection("FishingRods");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -20,7 +20,7 @@ const getFishingRods = async () => {
         return {
           chance: fishingOdd[0],
           type: fishingOdd[1],
-        } as fishingRods["fishingOdds"][number];
+        } satisfies fishingRods["fishingOdds"][number];
       }),
       currencyMultiplier: fishingRod.configData.FishingCurrencyMultiplier,
       name: fishingRod.configData.DisplayName,
@@ -33,8 +33,8 @@ const getFishingRods = async () => {
       rap:
         rapData.find((item) => item.id == fishingRod.configData.DisplayName)
           ?.rap ?? null,
-    } as fishingRods;
-  }) as fishingRods[];
+    } satisfies fishingRods;
+  }) satisfies fishingRods[];
 };
 
 export default getFishingRods;

@@ -1,7 +1,7 @@
 import getURL from "../getURL";
 import existData from "../types/existData";
 
-const getExist = async () => {
+const getExist = async (): Promise<existData[]> => {
   const data = await getURL("https://biggamesapi.io/api/exists");
 
   return data.map((item: any) => {
@@ -12,8 +12,8 @@ const getExist = async () => {
       variant: item.configData.pt ?? null,
       shiny: item.configData.sh ?? false,
       exist: item.value,
-    } as existData;
-  }) as existData[];
+    } satisfies existData;
+  }) satisfies existData[];
 };
 
 export default getExist;

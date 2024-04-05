@@ -2,12 +2,12 @@ import getURL from "../getURL";
 import getImageURL from "../other/getImageURL";
 import fullClan from "../types/clans/fullClan";
 
-const getClan = async (tag: string) => {
+const getClan = async (tag: string): Promise<fullClan> => {
   const data = await getURL(`https://biggamesapi.io/api/clan/${tag}`);
 
   const battles: { [key: string]: any } = {};
 
-  Object.keys(data.Battles).forEach((battle: string) => {
+  Object.keys(data.Battles ?? []).forEach((battle: string) => {
     const foundBattle = data.Battles[battle];
 
     const battleData = {
@@ -21,7 +21,7 @@ const getClan = async (tag: string) => {
           return {
             userId: contribution.UserID,
             points: contribution.Points,
-          };
+          } satisfies fullClan["battles"][string]["pointContributions"][number];
         }
       ),
       goals: foundBattle.Goals
@@ -43,7 +43,7 @@ const getClan = async (tag: string) => {
             };
           })
         : [],
-    } as fullClan["battles"]["battle"];
+    } satisfies fullClan["battles"]["battle"];
 
     battles[battle] = battleData;
   });
@@ -70,7 +70,7 @@ const getClan = async (tag: string) => {
           return {
             userId: donation.UserID,
             diamonds: donation.Diamonds,
-          } as fullClan["diamondContributions"]["allTime"]["data"][number];
+          } satisfies fullClan["diamondContributions"]["allTime"]["data"][number];
         }),
       },
     },
@@ -79,7 +79,7 @@ const getClan = async (tag: string) => {
         userId: member.UserID,
         permissionLevel: member.PermissionLevel,
         joinTime: member.JoinTime,
-      } as fullClan["members"][number];
+      } satisfies fullClan["members"][number];
     }),
     countryCode: data.CountryCode,
     lastKickTimestamp: data.lastKickTimestamp ?? null,
@@ -92,7 +92,7 @@ const getClan = async (tag: string) => {
     battles,
 
     rawData: data,
-  } as fullClan;
+  } satisfies fullClan;
 };
 
 export default getClan;

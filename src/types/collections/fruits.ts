@@ -15,7 +15,7 @@ type fruits = {
   ignoreFruitMachine: boolean;
   description: string;
   icon: string;
-  boost: boost[];
+  boosts: boost[];
 
   rap: number | null;
   rawData: any;

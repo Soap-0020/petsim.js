@@ -7,7 +7,7 @@ const getClans = async ({
   pageSize = 10,
   sort = "Points",
   sortOrder = "desc",
-}: searchDetails = {}) => {
+}: searchDetails = {}): Promise<clanOverview[]> => {
   const data = await getURL(
     `https://biggamesapi.io/api/clans?page=${page}&pageSize=${pageSize}&sort=${sort}&sortOrder=${sortOrder}`
   );
@@ -22,8 +22,8 @@ const getClans = async ({
       members: clan.Members,
       points: clan.Points ?? null,
       rawData: clan,
-    } as clanOverview;
-  }) as clanOverview[];
+    } satisfies clanOverview;
+  }) satisfies clanOverview[];
 };
 
 export default getClans;

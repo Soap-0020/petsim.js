@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import boxes from "../../types/collections/boxes";
 import getCollection from "../getCollection";
 
-const getBoxes = async () => {
+const getBoxes = async (): Promise<boxes[]> => {
   const data = await getCollection("Boxes");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -28,7 +28,7 @@ const getBoxes = async () => {
         return {
           name: icon.Name,
           icon: getImageURL(icon.Icon),
-        } as boxes["icons"][number];
+        } satisfies boxes["icons"][number];
       }),
 
       rap:
@@ -37,8 +37,8 @@ const getBoxes = async () => {
         })?.rap ?? null,
 
       rawData: box,
-    } as boxes;
-  }) as boxes[];
+    } satisfies boxes;
+  }) satisfies boxes[];
 };
 
 export default getBoxes;

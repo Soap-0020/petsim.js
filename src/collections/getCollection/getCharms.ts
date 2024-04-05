@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import charms from "../../types/collections/charms";
 import getCollection from "../getCollection";
 
-const getCharms = async () => {
+const getCharms = async (): Promise<charms[]> => {
   const data = await getCollection("Charms");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -38,10 +38,10 @@ const getCharms = async () => {
                 item.id + " Charm" == charmTier.DisplayName && item.tier == tier
               );
             })?.rap ?? null,
-        } as charms["tiers"][number];
+        } satisfies charms["tiers"][number];
       }),
-    } as charms;
-  }) as charms[];
+    } satisfies charms;
+  }) satisfies charms[];
 };
 
 export default getCharms;

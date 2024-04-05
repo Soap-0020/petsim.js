@@ -1,4 +1,4 @@
-const getImageURL = (imageId: string | number) => {
+const getImageURL = (imageId: string | number): string => {
   return `https://biggamesapi.io/image/${imageId
     .toString()
     .replace("rbxassetid://", "")}`;

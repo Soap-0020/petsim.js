@@ -1,7 +1,7 @@
 import achievements from "../../types/collections/achievements";
 import getCollection from "../getCollection";
 
-const getAchievements = async () => {
+const getAchievements = async (): Promise<achievements[]> => {
   const data = await getCollection("Achievements");
 
   return data.map((achievement: any) => {
@@ -21,7 +21,7 @@ const getAchievements = async () => {
               tier: reward.Reward._data.tn ?? null,
               variant: reward.Reward._data.pt ?? null,
               shiny: reward.Reward._data.sh ?? false,
-            } as achievements["tiers"][number]["rewards"][number];
+            } satisfies achievements["tiers"][number]["rewards"][number];
           }),
           difficulty: {
             name: tier.Difficulty.Name,
@@ -33,10 +33,10 @@ const getAchievements = async () => {
 
           hidden: tier.Hidden,
           description: tier.Desc,
-        } as achievements["tiers"][number];
+        } satisfies achievements["tiers"][number];
       }),
-    } as achievements;
-  }) as achievements[];
+    } satisfies achievements;
+  }) satisfies achievements[];
 };
 
 export default getAchievements;

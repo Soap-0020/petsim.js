@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import eggs from "../../types/collections/eggs";
 import getCollection from "../getCollection";
 
-const getEggs = async () => {
+const getEggs = async (): Promise<eggs[]> => {
   const data = await getCollection("Eggs");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -45,7 +45,7 @@ const getEggs = async () => {
           name: pet[0],
           chance: pet[1],
           notification: pet[2] ?? null,
-        } as eggs["pets"][number];
+        } satisfies eggs["pets"][number];
       }),
       rarity: egg.configData.rarity
         ? {
@@ -60,8 +60,8 @@ const getEggs = async () => {
         })?.rap ?? null,
 
       rawData: egg,
-    } as eggs;
-  }) as eggs[];
+    } satisfies eggs;
+  }) satisfies eggs[];
 };
 
 export default getEggs;

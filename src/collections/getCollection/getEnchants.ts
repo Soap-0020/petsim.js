@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import enchants from "../../types/collections/enchants";
 import getCollection from "../getCollection";
 
-const getEnchants = async () => {
+const getEnchants = async (): Promise<enchants[]> => {
   const data = await getCollection("Enchants");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -43,12 +43,12 @@ const getEnchants = async () => {
                 rapItem.tier == tier
               );
             })?.rap ?? null,
-        } as enchants["tiers"][number];
+        } satisfies enchants["tiers"][number];
       }),
 
       rawData: enchant,
-    } as enchants;
-  }) as enchants[];
+    } satisfies enchants;
+  }) satisfies enchants[];
 };
 
 export default getEnchants;

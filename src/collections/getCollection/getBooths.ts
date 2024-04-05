@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import booths from "../../types/collections/booths";
 import getCollection from "../getCollection";
 
-const getBooths = async () => {
+const getBooths = async (): Promise<booths[]> => {
   const data = await getCollection("Booths");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -29,8 +29,8 @@ const getBooths = async () => {
           return item.id + " Booth" == booth.configData.DisplayName;
         })?.rap ?? null,
       rawData: booth,
-    } as booths;
-  }) as booths[];
+    } satisfies booths;
+  }) satisfies booths[];
 };
 
 export default getBooths;

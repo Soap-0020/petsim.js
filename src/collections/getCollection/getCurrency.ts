@@ -2,7 +2,7 @@ import getImageURL from "../../other/getImageURL";
 import currency from "../../types/collections/currency";
 import getCollection from "../getCollection";
 
-const getCurrency = async () => {
+const getCurrency = async (): Promise<currency[]> => {
   const data = await getCollection("Currency");
 
   return data.map((currency: any) => {
@@ -34,7 +34,7 @@ const getCurrency = async () => {
           rainData: {
             lightEmission: tier.rainData?.LightEmission ?? null,
           },
-        } as currency["tiers"][number];
+        } satisfies currency["tiers"][number];
       }),
 
       bagTiers:
@@ -42,12 +42,12 @@ const getCurrency = async () => {
           return {
             value: bagTier.value,
             image: getImageURL(bagTier.image),
-          } as currency["bagTiers"][number];
+          } satisfies currency["bagTiers"][number];
         }) ?? [],
 
       rawData: currency,
-    } as currency;
-  }) as currency[];
+    } satisfies currency;
+  }) satisfies currency[];
 };
 
 export default getCurrency;

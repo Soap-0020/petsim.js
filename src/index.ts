@@ -1,45 +1,22 @@
-import clan from "./clans/getClan";
-import clans from "./clans/getClans";
-import getAchievements from "./collections/getCollection/getAchievements";
-import getBoosts from "./collections/getCollection/getBoosts";
-import collections from "./collections/getCollections";
-import image from "./other/getImageURL";
-import activeClanBattle from "./clans/getActiveClanBattle";
-import getRAP from "./other/getRAP";
-import getExist from "./other/getExist";
-import getBooths from "./collections/getCollection/getBooths";
-import getBoxes from "./collections/getCollection/getBoxes";
-import getBuffs from "./collections/getCollection/getBuffs";
-import getCharms from "./collections/getCollection/getCharms";
-import getCurrency from "./collections/getCollection/getCurrency";
-import getEggs from "./collections/getCollection/getEggs";
-import getEnchants from "./collections/getCollection/getEnchants";
-import onExistChange from "./other/onExistChange";
-import onRapChange from "./other/onRapChange";
-import getCollection from "./collections/getCollection";
-import getFishingRods from "./collections/getCollection/getFishingRods";
-import getActiveHuges from "./other/getActiveHuges";
-
-export {
-  clan,
-  clans,
-  getAchievements,
-  getBoosts,
-  collections,
-  image,
-  activeClanBattle,
-  getRAP,
-  getExist,
-  getBooths,
-  getBoxes,
-  getBuffs,
-  getCharms,
-  getCurrency,
-  getEnchants,
-  getEggs,
-  onExistChange,
-  onRapChange,
-  getCollection,
-  getFishingRods,
-  getActiveHuges,
-};
+export { default as clan } from "./clans/getClan";
+export { default as clans } from "./clans/getClans";
+export { default as getAchievements } from "./collections/getCollection/getAchievements";
+export { default as getBoosts } from "./collections/getCollection/getBoosts";
+export { default as collections } from "./collections/getCollections";
+export { default as image } from "./other/getImageURL";
+export { default as activeClanBattle } from "./clans/getActiveClanBattle";
+export { default as getRAP } from "./other/getRAP";
+export { default as getExist } from "./other/getExist";
+export { default as getBooths } from "./collections/getCollection/getBooths";
+export { default as getBoxes } from "./collections/getCollection/getBoxes";
+export { default as getBuffs } from "./collections/getCollection/getBuffs";
+export { default as getCharms } from "./collections/getCollection/getCharms";
+export { default as getCurrency } from "./collections/getCollection/getCurrency";
+export { default as getEggs } from "./collections/getCollection/getEggs";
+export { default as getEnchants } from "./collections/getCollection/getEnchants";
+export { default as onExistChange } from "./other/onExistChange";
+export { default as onRapChange } from "./other/onRapChange";
+export { default as getCollection } from "./collections/getCollection";
+export { default as getFishingRods } from "./collections/getCollection/getFishingRods";
+export { default as getActiveHuges } from "./other/getActiveHuges";
+export { default as getFruits } from "./collections/getCollection/getFruits";

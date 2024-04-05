@@ -2,7 +2,7 @@ import getRAP from "../../other/getRAP";
 import buffs from "../../types/collections/buffs";
 import getCollection from "../getCollection";
 
-const getBuffs = async () => {
+const getBuffs = async (): Promise<buffs[]> => {
   const data = await getCollection("Buffs");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -23,8 +23,8 @@ const getBuffs = async () => {
         })?.rap ?? null,
 
       rawData: buff,
-    } as buffs;
-  }) as buffs[];
+    } satisfies buffs;
+  }) satisfies buffs[];
 };
 
 export default getBuffs;
