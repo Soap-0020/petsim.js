@@ -1,3 +1,4 @@
+import getImageURL from "../../other/getImageURL";
 import achievements from "../../types/collections/achievements";
 import getCollection from "../getCollection";
 
@@ -11,6 +12,7 @@ const getAchievements = async (): Promise<achievements[]> => {
       configName: achievement.configName,
       name: achievement.configData.Name,
       rawData: achievement,
+      icon: getImageURL(achievement.configData.Icon),
 
       tiers: achievement.configData.Tiers.map((tier: any) => {
         return {

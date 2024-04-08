@@ -20,3 +20,4 @@ export { default as getCollection } from "./collections/getCollection";
 export { default as getFishingRods } from "./collections/getCollection/getFishingRods";
 export { default as getActiveHuges } from "./other/getActiveHuges";
 export { default as getFruits } from "./collections/getCollection/getFruits";
+export { default as getClanBattles } from "./collections/getCollection/getClanBattles";

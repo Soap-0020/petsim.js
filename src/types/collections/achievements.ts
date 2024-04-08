@@ -28,6 +28,7 @@ type achievements = {
   name: string;
   configName: string;
   tiers: tiers[];
+  icon: string;
 
   rawData: any;
 };
