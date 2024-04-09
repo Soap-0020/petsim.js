@@ -1,14 +1,12 @@
 import getImageURL from "../../other/getImageURL";
-import getRAP from "../../other/getRAP";
 import charms from "../../types/collections/charms";
+import rapType from "../../types/rapData";
 import getCollection from "../getCollection";
 
-const getCharms = async (): Promise<charms[]> => {
+const getCharms = async (rapData: rapType[] = []): Promise<charms[]> => {
   const data = await getCollection("Charms");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Charm";
-  });
+  rapData = rapData.filter((item) => item.category == "Charm");
 
   return data.map((charm: any) => {
     let tier = charm.configData.BaseTier - 1;

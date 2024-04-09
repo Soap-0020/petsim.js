@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import flags from "../../types/collections/flags";
+import rapType from "../../types/rapData";
 
-const getFlags = async (): Promise<flags[]> => {
+const getFlags = async (rapData: rapType[] = []): Promise<flags[]> => {
   const data = await getCollection("ZoneFlags");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((flag: any) => {
     return {

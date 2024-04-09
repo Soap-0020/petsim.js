@@ -1,14 +1,14 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import walteringCans from "../../types/collections/walteringCans";
+import rapType from "../../types/rapData";
 
-const getWalteringCans = async (): Promise<walteringCans[]> => {
+const getWalteringCans = async (
+  rapData: rapType[] = []
+): Promise<walteringCans[]> => {
   const data = await getCollection("WateringCans");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((walteringCan: any) => {
     return {

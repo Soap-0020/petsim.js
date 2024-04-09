@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import getRAP from "../../other/getRAP";
 import potions from "../../types/collections/potions";
+import rapType from "../../types/rapData";
 
-const getPotions = async (): Promise<potions[]> => {
+const getPotions = async (rapData: rapType[] = []): Promise<potions[]> => {
   const data = await getCollection("Potions");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Potion";
-  });
+  rapData = rapData.filter((item) => item.category == "Potion");
 
   return data.map((potion: any) => {
     let tierNumber = potion.configData.BaseTier - 1;

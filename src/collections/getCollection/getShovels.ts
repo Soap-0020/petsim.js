@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
 import shovels from "../../types/collections/shovels";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
+import rapType from "../../types/rapData";
 
-const getShovels = async (): Promise<shovels[]> => {
+const getShovels = async (rapData: rapType[] = []): Promise<shovels[]> => {
   const data = await getCollection("Shovels");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((shovel: any) => {
     return {

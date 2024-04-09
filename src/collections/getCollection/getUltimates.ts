@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import ultimates from "../../types/collections/ultimates";
+import rapType from "../../types/rapData";
 
-const getUltimates = async (): Promise<ultimates[]> => {
+const getUltimates = async (rapData: rapType[] = []): Promise<ultimates[]> => {
   const data = await getCollection("Ultimates");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Ultimate";
-  });
+  rapData = rapData.filter((item) => item.category == "Ultimate");
 
   return data.map((ultimate: any) => {
     return {

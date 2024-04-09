@@ -1,14 +1,14 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import hoverboards from "../../types/collections/hoverboards";
+import rapType from "../../types/rapData";
 
-const getHoverboards = async (): Promise<hoverboards[]> => {
+const getHoverboards = async (
+  rapData: rapType[] = []
+): Promise<hoverboards[]> => {
   const data = await getCollection("Hoverboards");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Hoverboard";
-  });
+  rapData = rapData.filter((item) => item.category == "Hoverboard");
 
   return data.map((hoverboard: any) => {
     return {

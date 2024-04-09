@@ -1,14 +1,14 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import sprinklers from "../../types/collections/sprinklers";
+import rapType from "../../types/rapData";
 
-const getSprinklers = async (): Promise<sprinklers[]> => {
+const getSprinklers = async (
+  rapData: rapType[] = []
+): Promise<sprinklers[]> => {
   const data = await getCollection("Sprinklers");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((sprinkler: any) => {
     return {

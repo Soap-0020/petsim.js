@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
-import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import lootboxes from "../../types/collections/lootboxes";
+import rapType from "../../types/rapData";
 
-const getLootboxes = async (): Promise<lootboxes[]> => {
+const getLootboxes = async (rapData: rapType[] = []): Promise<lootboxes[]> => {
   const data = await getCollection("Lootboxes");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Lootbox";
-  });
+  rapData = rapData.filter((item) => item.category == "Lootbox");
 
   return data.map((lootbox: any) => {
     return {

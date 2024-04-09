@@ -1,14 +1,12 @@
 import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
 import miscItems from "../../types/collections/miscItems";
-import getRAP from "../../other/getRAP";
+import rapType from "../../types/rapData";
 
-const getMiscItems = async (): Promise<miscItems[]> => {
+const getMiscItems = async (rapData: rapType[] = []): Promise<miscItems[]> => {
   const data = await getCollection("MiscItems");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((miscItem: any) => {
     return {

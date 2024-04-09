@@ -1,14 +1,12 @@
 import getImageURL from "../../other/getImageURL";
-import getRAP from "../../other/getRAP";
 import booths from "../../types/collections/booths";
+import rapType from "../../types/rapData";
 import getCollection from "../getCollection";
 
-const getBooths = async (): Promise<booths[]> => {
+const getBooths = async (rapData: rapType[] = []): Promise<booths[]> => {
   const data = await getCollection("Booths");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Booth";
-  });
+  rapData = rapData.filter((e) => e.category == "Booth");
 
   return data.map((booth: any) => {
     return {

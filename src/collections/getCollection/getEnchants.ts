@@ -1,14 +1,12 @@
 import getImageURL from "../../other/getImageURL";
-import getRAP from "../../other/getRAP";
 import enchants from "../../types/collections/enchants";
+import rapType from "../../types/rapData";
 import getCollection from "../getCollection";
 
-const getEnchants = async (): Promise<enchants[]> => {
+const getEnchants = async (rapData: rapType[] = []): Promise<enchants[]> => {
   const data = await getCollection("Enchants");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Enchant";
-  });
+  rapData = rapData.filter((item) => item.category == "Enchant");
 
   return data.map((enchant: any) => {
     let tier = enchant.configData.BaseTier - 1;

@@ -1,13 +1,11 @@
-import getRAP from "../../other/getRAP";
 import buffs from "../../types/collections/buffs";
+import rapType from "../../types/rapData";
 import getCollection from "../getCollection";
 
-const getBuffs = async (): Promise<buffs[]> => {
+const getBuffs = async (rapData: rapType[] = []): Promise<buffs[]> => {
   const data = await getCollection("Buffs");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Misc";
-  });
+  rapData = rapData.filter((item) => item.category == "Misc");
 
   return data.map((buff: any) => {
     return {

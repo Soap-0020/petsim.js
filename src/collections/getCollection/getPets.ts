@@ -1,17 +1,16 @@
 import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import getRAP from "../../other/getRAP";
 import pets from "../../types/collections/pets";
-import getExist from "../../other/getExist";
+import rapType from "../../types/rapData";
+import existType from "../../types/existData";
 
-const getPets = async (): Promise<pets[]> => {
+const getPets = async (
+  rapData: rapType[] = [],
+  existData: existType[] = []
+): Promise<pets[]> => {
   const data = await getCollection("Pets");
 
-  const rapData = (await getRAP()).filter((item) => {
-    return item.category == "Pet";
-  });
-
-  const existData = await getExist();
+  rapData = rapData.filter((item) => item.category == "Pet");
 
   return data.map((pet: any) => {
     return {
