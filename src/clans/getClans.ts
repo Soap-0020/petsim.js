@@ -22,6 +22,7 @@ const getClans = async ({
       members: clan.Members,
       points: clan.Points ?? null,
       rawData: clan,
+      icon: clan.Icon,
     } satisfies clanOverview;
   }) satisfies clanOverview[];
 };
