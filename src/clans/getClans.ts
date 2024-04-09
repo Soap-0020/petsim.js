@@ -1,4 +1,5 @@
 import getURL from "../getURL";
+import getImageURL from "../other/getImageURL";
 import clanOverview from "../types/clans/clanOverview";
 import searchDetails from "../types/clans/searchDetails";
 
@@ -22,7 +23,7 @@ const getClans = async ({
       members: clan.Members,
       points: clan.Points ?? null,
       rawData: clan,
-      icon: clan.Icon,
+      icon: getImageURL(clan.Icon),
     } satisfies clanOverview;
   }) satisfies clanOverview[];
 };
