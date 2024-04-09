@@ -1,5 +1,10 @@
 import rarity from "../rarity";
 
+type rap = {
+  normal: number | null;
+  shiny: number | null;
+};
+
 type sounds = { [key: string]: string[] };
 
 type hoverboards = {
@@ -22,5 +27,8 @@ type hoverboards = {
   rotationLimit: number | null;
   defaultJumpSpeedBoost: number | null;
   tradable: boolean;
+  rap: rap;
+
+  rawData: any;
 };
 export default hoverboards;

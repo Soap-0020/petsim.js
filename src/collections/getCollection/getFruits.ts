@@ -3,7 +3,7 @@ import getRAP from "../../other/getRAP";
 import getImageURL from "../../other/getImageURL";
 import fruits from "../../types/collections/fruits";
 
-const getFishingRods = async (): Promise<fruits[]> => {
+const getFruits = async (): Promise<fruits[]> => {
   const data = await getCollection("Fruits");
 
   const rapData = (await getRAP()).filter((item) => {
@@ -39,4 +39,4 @@ const getFishingRods = async (): Promise<fruits[]> => {
   }) satisfies fruits[];
 };
 
-export default getFishingRods;
+export default getFruits;
