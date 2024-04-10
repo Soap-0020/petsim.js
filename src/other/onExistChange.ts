@@ -21,14 +21,14 @@ const onExistChange = (callback: existCallback) => {
           if (index > 0) {
             const newPet = { ...pet };
             pet.exist = 0;
-            callback(newPet, pet);
+            callback(newPet, pet, data);
           }
 
           continue;
         }
 
         if (foundCache.exist !== pet.exist) {
-          callback(pet, foundCache);
+          callback(pet, foundCache, data);
 
           foundCache.exist = pet.exist;
         }

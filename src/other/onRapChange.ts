@@ -25,7 +25,7 @@ const onRapChange = (callback: rapCallback) => {
         }
 
         if (foundCache.rap !== pet.rap) {
-          callback(pet, foundCache);
+          callback(pet, foundCache, data);
           foundCache.rap = pet.rap;
         }
       }
