@@ -28,7 +28,7 @@ const onExistChange = (callback: existCallback) => {
         }
 
         if (foundCache.exist !== pet.exist) {
-          callback(pet, foundCache, data);
+          callback(pet, { ...foundCache }, data);
 
           foundCache.exist = pet.exist;
         }
