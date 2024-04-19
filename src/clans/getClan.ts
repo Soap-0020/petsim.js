@@ -16,7 +16,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
       battleId: foundBattle.BattleID,
       points: foundBattle.Points,
       earnedMedal: foundBattle.EarnedMedal ?? null,
-      pointContributions: foundBattle.PointContributions.map(
+      pointContributions: (foundBattle.PointContributions ?? []).map(
         (contribution: any) => {
           return {
             userId: contribution.UserID,
