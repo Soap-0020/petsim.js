@@ -42,4 +42,6 @@ export { default as getWorlds } from "./collections/getCollection/getWorlds";
 export { default as getFlags } from "./collections/getCollection/getFlags";
 export { default as getZones } from "./collections/getCollection/getZones";
 export { default as getMerchents } from "./collections/getCollection/getMerchents";
-export { default as getClanTotal } from "./other/getClanTotal";
+export { default as getClanTotal } from "./clans/getClanTotal";
+export { default as onActiveHugeUpdate } from "./other/onActiveHugeUpdate";
+export { default as getClanList } from "./clans/getClanList";
