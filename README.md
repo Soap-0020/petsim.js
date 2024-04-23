@@ -18,6 +18,16 @@ import { clan } from "petsim.js"; // Or Using The require() function
   console.log(clans); // Log out the result
 })();
 ```
+## Getting Details of Members
+```typescript
+import { getClanMembers } from "petsim.js";
+
+(async () => {
+  const members = await getClanMembers("C4T6"); //array of fullMember objects
+
+  console.log(members);
+})();
+```
 
 ## Hooks/Events
 
