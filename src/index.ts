@@ -45,3 +45,4 @@ export { default as getMerchents } from "./collections/getCollection/getMerchent
 export { default as getClanTotal } from "./clans/getClanTotal";
 export { default as onActiveHugeUpdate } from "./other/onActiveHugeUpdate";
 export { default as getClanList } from "./clans/getClanList";
+export { default as getClanMembers } from "./clans/getClanMembers";

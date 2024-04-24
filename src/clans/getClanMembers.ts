@@ -1,4 +1,4 @@
-import fullClan from "../types/clans/fullClan.";
+import fullClan from "../types/clans/fullClan";
 import fullMember from "../types/clans/fullMember";
 import getClan from "./getClan";
 
