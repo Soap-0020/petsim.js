@@ -3,7 +3,7 @@ type clanOverview = {
   name: string;
   memberCapacity: number;
   depositedDiamonds: number;
-  countryCode: string;
+  countryCode: string | null;
   members: number;
   points: number | null;
   rawData: any;
