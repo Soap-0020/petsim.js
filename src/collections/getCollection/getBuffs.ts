@@ -1,9 +1,9 @@
-import buffs from "../../types/collections/buffs";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Buffs from "../../types/collections/buffs";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getBuffs = async (rapData: rapType[] = []): Promise<buffs[]> => {
-  const data = await getCollection("Buffs");
+const getBuffs = async (rapData: RapData[] = []): Promise<Buffs[]> => {
+  const data = await fetchCollection("Buffs");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -21,8 +21,8 @@ const getBuffs = async (rapData: rapType[] = []): Promise<buffs[]> => {
         })?.rap ?? null,
 
       rawData: buff,
-    } satisfies buffs;
-  }) satisfies buffs[];
+    } satisfies Buffs;
+  }) satisfies Buffs[];
 };
 
 export default getBuffs;

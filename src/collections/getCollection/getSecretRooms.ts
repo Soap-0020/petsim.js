@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import secretRooms from "../../types/collections/secretRooms";
+import SecretRooms from "../../types/collections/secretRooms";
+import fetchCollection from "../fetchCollection";
 
-const getSecretRooms = async (): Promise<secretRooms[]> => {
-  const data = await getCollection("SecretRooms");
+const getSecretRooms = async (): Promise<SecretRooms[]> => {
+  const data = await fetchCollection("SecretRooms");
 
   return data.map((secretRoom: any) => {
     return {
@@ -13,8 +13,8 @@ const getSecretRooms = async (): Promise<secretRooms[]> => {
       name: secretRoom.configData.DisplayName,
       rawData: secretRoom,
       zone: secretRoom.configData.RequiredZone,
-    } satisfies secretRooms;
-  }) satisfies secretRooms[];
+    } satisfies SecretRooms;
+  }) satisfies SecretRooms[];
 };
 
 export default getSecretRooms;

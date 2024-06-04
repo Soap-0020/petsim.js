@@ -1,9 +1,9 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type ultimates = {
+type Ultimates = {
   category: "Ultimates";
   collection: "Ultimates";
-  rarity: rarity;
+  rarity: Rarity;
   tierToLevel: number[];
   configName: string;
 
@@ -18,4 +18,4 @@ type ultimates = {
   productId: number | null;
 };
 
-export default ultimates;
+export default Ultimates;

@@ -1,10 +1,10 @@
-type areaWhitelist = {
+type AreaWhitelist = {
   magma: boolean;
   main: boolean;
   ice: boolean;
 };
 
-type randomEvents = {
+type RandomEvents = {
   category: "RandomEvents";
   configName: string;
   collection: "RandomEvents";
@@ -18,10 +18,10 @@ type randomEvents = {
   playtimeRequirement: number;
   chance: number;
 
-  areaWhitelist: areaWhitelist;
+  areaWhitelist: AreaWhitelist;
   icon: string;
   breakingRequirement: number;
   rawData: any;
 };
 
-export default randomEvents;
+export default RandomEvents;

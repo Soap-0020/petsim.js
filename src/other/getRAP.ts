@@ -1,7 +1,7 @@
 import getURL from "../getURL";
-import rapData from "../types/rapData";
+import RapData from "../types/rapData";
 
-const getRAP = async (): Promise<rapData[]> => {
+const getRAP = async (): Promise<RapData[]> => {
   const data = await getURL("https://biggamesapi.io/api/rap");
 
   return data.map((item: any) => {
@@ -12,8 +12,8 @@ const getRAP = async (): Promise<rapData[]> => {
       variant: item.configData.pt ?? null,
       shiny: item.configData.sh ?? false,
       rap: item.value,
-    } satisfies rapData;
-  }) satisfies rapData[];
+    } satisfies RapData;
+  }) satisfies RapData[];
 };
 
 export default getRAP;

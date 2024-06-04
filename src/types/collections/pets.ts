@@ -1,33 +1,33 @@
-type rap = {
+type Rap = {
   shiny: boolean;
   variant: number | null;
   rap: number;
 };
 
-type exist = {
+type Exist = {
   shiny: boolean;
   variant: number | null;
   exist: number;
 };
 
-type thumbnails = {
+type Thumbnails = {
   normal: string;
   golden: string | null;
 };
 
-type animations = { [key: string]: any };
+type Animations = { [key: string]: any };
 
-type pets = {
+type Pets = {
   configName: string;
   category: string;
   collection: "Pets";
-  thumbnails: thumbnails;
+  thumbnails: Thumbnails;
   obtainable: boolean;
   huge: boolean;
   titanic: boolean;
   name: string;
   description: string | null;
-  animations: animations;
+  animations: Animations;
   fly: boolean;
   power: number | null;
   egg: string | null;
@@ -41,10 +41,10 @@ type pets = {
   exclusiveLevel: number | null;
   isFromLastZone: boolean;
 
-  rap: rap[];
-  exist: exist[];
+  rap: Rap[];
+  exist: Exist[];
 
   rawData: any;
 };
 
-export default pets;
+export default Pets;

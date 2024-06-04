@@ -1,4 +1,4 @@
-type shovels = {
+type Shovels = {
   configName: string;
   category: "Shovels";
   collection: "Shovels";
@@ -11,4 +11,4 @@ type shovels = {
   rap: number | null;
 };
 
-export default shovels;
+export default Shovels;

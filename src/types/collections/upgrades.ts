@@ -1,10 +1,10 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type rainData = {
+type RainData = {
   lightEmission: number | null;
 };
 
-type tiers = {
+type Tiers = {
   orbImage: string;
   imageOutline: string;
   order: number;
@@ -12,25 +12,25 @@ type tiers = {
   value: number;
   name: string;
   tinyImage: string;
-  rainData: rainData;
+  rainData: RainData;
 };
 
-type bagTiers = {
+type BagTiers = {
   value: number;
   image: string;
 };
 
-type tierCurrencies = {
-  rariry: rarity;
+type TierCurrencies = {
+  rariry: Rarity;
   tradeable: boolean;
-  tiers: tiers[];
+  tiers: Tiers[];
   name: string;
   maxAmount: number;
   description: string;
-  bagTiers: bagTiers[];
+  bagTiers: BagTiers[];
 };
 
-type upgrades = {
+type Upgrades = {
   configName: string;
   category: "Upgrades";
   collection: "Upgrades";
@@ -38,7 +38,7 @@ type upgrades = {
   tierPowers: number[];
   tierCosts: number[];
   icon: string | null;
-  tierCurrencies: tierCurrencies[];
+  tierCurrencies: TierCurrencies[];
 };
 
-export default upgrades;
+export default Upgrades;

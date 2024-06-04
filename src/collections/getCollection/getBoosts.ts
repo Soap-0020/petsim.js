@@ -1,9 +1,9 @@
 import getImageURL from "../../other/getImageURL";
-import boosts from "../../types/collections/boosts";
-import getCollection from "../getCollection";
+import Boosts from "../../types/collections/boosts";
+import fetchCollection from "../fetchCollection";
 
-const getBoosts = async (): Promise<boosts[]> => {
-  const data = await getCollection("Boosts");
+const getBoosts = async (): Promise<Boosts[]> => {
+  const data = await fetchCollection("Boosts");
 
   return data.map((boost: any) => {
     return {
@@ -14,8 +14,8 @@ const getBoosts = async (): Promise<boosts[]> => {
       icon: getImageURL(boost.configData.Icon),
       maximumPercent: boost.configData.MaximumPercent,
       rawData: boost,
-    } satisfies boosts;
-  }) satisfies boosts[];
+    } satisfies Boosts;
+  }) satisfies Boosts[];
 };
 
 export default getBoosts;

@@ -1,17 +1,17 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type booths = {
+type Booths = {
   category: "Booths";
   collection: "Booths";
   name: string;
   configName: string;
   icon: string;
   description: string;
-  rarity: rarity;
+  rarity: Rarity;
   hidden: boolean;
 
   rap: number | null;
   rawData: any;
 };
 
-export default booths;
+export default Booths;

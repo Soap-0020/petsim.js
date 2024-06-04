@@ -1,11 +1,11 @@
-type goals = {
+type Goals = {
   amount: number;
   type: number;
   weight: number;
   currency: string | null;
 };
 
-type rewards = {
+type Rewards = {
   item: {
     id: string;
     amount: number;
@@ -14,7 +14,7 @@ type rewards = {
   starsRequired: number;
 };
 
-type ranks = {
+type Ranks = {
   configName: string;
   category: "Ranks";
   collection: "Ranks";
@@ -24,9 +24,9 @@ type ranks = {
   unlockableEggSlots: number;
   rank: number;
   maximumActiveGoals: number;
-  goals: goals[][];
-  rewards: rewards[];
+  goals: Goals[][];
+  rewards: Rewards[];
   rawData: any;
 };
 
-export default ranks;
+export default Ranks;

@@ -1,4 +1,4 @@
-type boosts = {
+type Boosts = {
   category: "Boosts";
   collection: "Boosts";
   name: string;
@@ -8,4 +8,4 @@ type boosts = {
   rawData: any;
 };
 
-export default boosts;
+export default Boosts;

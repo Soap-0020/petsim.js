@@ -1,16 +1,16 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type lootboxes = {
+type Lootboxes = {
   configName: string;
   category: "Lootboxes";
   collection: "Lootboxes";
   name: string;
   icon: string;
   description: string;
-  rarity: rarity;
+  rarity: Rarity;
 
   rap: number | null;
   rawData: any;
 };
 
-export default lootboxes;
+export default Lootboxes;

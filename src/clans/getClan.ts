@@ -1,8 +1,8 @@
 import getURL from "../getURL";
 import getImageURL from "../other/getImageURL";
-import fullClan from "../types/clans/fullClan";
+import FullClan from "../types/clans/fullClan";
 
-const getClan = async (tag: string): Promise<fullClan> => {
+const getClan = async (tag: string): Promise<FullClan> => {
   const data = await getURL(`https://biggamesapi.io/api/clan/${tag}`);
 
   const battles: { [key: string]: any } = {};
@@ -21,7 +21,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
           return {
             userId: contribution.UserID,
             points: contribution.Points,
-          } satisfies fullClan["battles"][string]["pointContributions"][number];
+          } satisfies FullClan["battles"][string]["pointContributions"][number];
         }
       ),
       goals: foundBattle.Goals
@@ -43,7 +43,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
             };
           })
         : [],
-    } satisfies fullClan["battles"]["battle"];
+    } satisfies FullClan["battles"]["battle"];
 
     battles[battle] = battleData;
   });
@@ -70,7 +70,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
           return {
             userId: donation.UserID,
             diamonds: donation.Diamonds,
-          } satisfies fullClan["diamondContributions"]["allTime"]["data"][number];
+          } satisfies FullClan["diamondContributions"]["allTime"]["data"][number];
         }),
       },
     },
@@ -79,7 +79,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
         userId: member.UserID,
         permissionLevel: member.PermissionLevel,
         joinTime: member.JoinTime,
-      } satisfies fullClan["members"][number];
+      } satisfies FullClan["members"][number];
     }),
     countryCode: data.CountryCode,
     lastKickTimestamp: data.lastKickTimestamp ?? null,
@@ -92,7 +92,7 @@ const getClan = async (tag: string): Promise<fullClan> => {
     battles,
 
     rawData: data,
-  } satisfies fullClan;
+  } satisfies FullClan;
 };
 
 export default getClan;

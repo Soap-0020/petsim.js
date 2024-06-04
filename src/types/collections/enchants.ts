@@ -1,7 +1,7 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type tiers = {
-  rarity: rarity;
+type Tiers = {
+  rarity: Rarity;
   power: number;
   description: string;
   icon: string;
@@ -11,7 +11,7 @@ type tiers = {
   rap: number | null;
 };
 
-type enchants = {
+type Enchants = {
   category: string;
   collection: "Enchants";
   configName: string;
@@ -20,8 +20,8 @@ type enchants = {
   diminishPowerThreshold: number | null;
   productId: number | null;
 
-  tiers: tiers[];
+  tiers: Tiers[];
   rawData: any;
 };
 
-export default enchants;
+export default Enchants;

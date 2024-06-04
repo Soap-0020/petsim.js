@@ -1,7 +1,7 @@
 import getURL from "../getURL";
-import activeClanBattle from "../types/clans/activeClanBattle";
+import ActiveClanBattle from "../types/clans/activeClanBattle";
 
-const getActiveClanBattle = async (): Promise<activeClanBattle> => {
+const getActiveClanBattle = async (): Promise<ActiveClanBattle> => {
   const data = await getURL("https://biggamesapi.io/api/activeClanBattle");
 
   return {
@@ -13,19 +13,19 @@ const getActiveClanBattle = async (): Promise<activeClanBattle> => {
     rewards: {
       bronze: data.configData.Rewards.Bronze.map((reward: any) => {
         return reward._data
-          .id satisfies activeClanBattle["rewards"]["bronze"][number];
+          .id satisfies ActiveClanBattle["rewards"]["bronze"][number];
       }),
       silver: data.configData.Rewards.Silver.map((reward: any) => {
         return reward._data
-          .id satisfies activeClanBattle["rewards"]["silver"][number];
+          .id satisfies ActiveClanBattle["rewards"]["silver"][number];
       }),
       gold: data.configData.Rewards.Gold.map((reward: any) => {
         return reward._data
-          .id satisfies activeClanBattle["rewards"]["gold"][number];
+          .id satisfies ActiveClanBattle["rewards"]["gold"][number];
       }),
     },
     rawData: data,
-  } satisfies activeClanBattle;
+  } satisfies ActiveClanBattle;
 };
 
 export default getActiveClanBattle;

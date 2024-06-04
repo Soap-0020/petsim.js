@@ -1,10 +1,10 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type sprinklers = {
+type Sprinklers = {
   category: "Sprinklers";
   collection: "Sprinklers";
   configName: string;
-  rarity: rarity;
+  rarity: Rarity;
   color: string;
   duration: number;
   description: string;
@@ -15,4 +15,4 @@ type sprinklers = {
   rawData: any;
 };
 
-export default sprinklers;
+export default Sprinklers;

@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import potions from "../../types/collections/potions";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Potions from "../../types/collections/potions";
+import fetchCollection from "../fetchCollection";
 
-const getPotions = async (rapData: rapType[] = []): Promise<potions[]> => {
-  const data = await getCollection("Potions");
+const getPotions = async (rapData: RapData[] = []): Promise<Potions[]> => {
+  const data = await fetchCollection("Potions");
 
   rapData = rapData.filter((item) => item.category == "Potion");
 
@@ -40,10 +40,10 @@ const getPotions = async (rapData: rapType[] = []): Promise<potions[]> => {
               (e) =>
                 e.id == potion.configName.split("| ")[1] && e.tier == tierNumber
             )?.rap ?? null,
-        } satisfies potions["tiers"][number];
+        } satisfies Potions["tiers"][number];
       }),
-    } satisfies potions;
-  }) satisfies potions[];
+    } satisfies Potions;
+  }) satisfies Potions[];
 };
 
 export default getPotions;

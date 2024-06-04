@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
-import seeds from "../../types/collections/seeds";
 import getImageURL from "../../other/getImageURL";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Seeds from "../../types/collections/seeds";
+import fetchCollection from "../fetchCollection";
 
-const getSeeds = async (rapData: rapType[] = []): Promise<seeds[]> => {
-  const data = await getCollection("Seeds");
+const getSeeds = async (rapData: RapData[] = []): Promise<Seeds[]> => {
+  const data = await fetchCollection("Seeds");
 
   rapData = rapData.filter((item) => item.category == "Seed");
 
@@ -40,10 +40,10 @@ const getSeeds = async (rapData: rapType[] = []): Promise<seeds[]> => {
             tier: entry.Value._data.tn ?? null,
             maxAmount: entry.Value._maxAmount,
           },
-        } satisfies seeds["loot"][number];
+        } satisfies Seeds["loot"][number];
       }),
-    } satisfies seeds;
-  }) satisfies seeds[];
+    } satisfies Seeds;
+  }) satisfies Seeds[];
 };
 
 export default getSeeds;

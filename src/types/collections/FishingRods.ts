@@ -1,14 +1,14 @@
-type fishingOdds = {
+type FishingOdds = {
   chance: number;
   type: string;
 };
 
-type fishingRods = {
+type FishingRods = {
   collection: "FishingRods";
   category: "FishingRods";
   configName: string;
   fishingChance: number;
-  fishingOdds: fishingOdds[];
+  fishingOdds: FishingOdds[];
   currencyMultiplier: number;
   name: string;
   minimumFishingTime: number;
@@ -20,4 +20,4 @@ type fishingRods = {
   rap: number | null;
 };
 
-export default fishingRods;
+export default FishingRods;

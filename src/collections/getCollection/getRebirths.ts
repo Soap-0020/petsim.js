@@ -1,9 +1,9 @@
-import getCollection from "../getCollection";
-import rebirths from "../../types/collections/rebirths";
 import getImageURL from "../../other/getImageURL";
+import Rebirths from "../../types/collections/rebirths";
+import fetchCollection from "../fetchCollection";
 
-const getRebirths = async (): Promise<rebirths[]> => {
-  const data = await getCollection("Rebirths");
+const getRebirths = async (): Promise<Rebirths[]> => {
+  const data = await fetchCollection("Rebirths");
 
   return data.map((rebirth: any) => {
     return {
@@ -22,10 +22,10 @@ const getRebirths = async (): Promise<rebirths[]> => {
           description: unlock.Desc,
           icon: getImageURL(unlock.Icon),
           guiTitle: unlock.GuiTitle ?? null,
-        } satisfies rebirths["unlocks"][number];
+        } satisfies Rebirths["unlocks"][number];
       }),
-    } satisfies rebirths;
-  }) satisfies rebirths[];
+    } satisfies Rebirths;
+  }) satisfies Rebirths[];
 };
 
 export default getRebirths;

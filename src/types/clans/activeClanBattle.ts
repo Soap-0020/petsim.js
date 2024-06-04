@@ -1,18 +1,18 @@
-type rewards = {
+type Rewards = {
   bronze: string[];
   silver: string[];
   gold: string[];
 };
 
-type activeClanBattle = {
+type ActiveClanBattle = {
   category: "GuildBattles";
   configName: string;
   finishTime: number;
   startTime: number;
   name: string;
-  rewards: rewards;
+  rewards: Rewards;
 
   rawData: any;
 };
 
-export default activeClanBattle;
+export default ActiveClanBattle;

@@ -1,4 +1,4 @@
-type worlds = {
+type Worlds = {
   configName: string;
   category: "Worlds";
   collection: "Worlds";
@@ -10,4 +10,4 @@ type worlds = {
   rawData: any;
 };
 
-export default worlds;
+export default Worlds;

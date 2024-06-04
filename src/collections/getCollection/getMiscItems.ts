@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import miscItems from "../../types/collections/miscItems";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import MiscItems from "../../types/collections/miscItems";
+import fetchCollection from "../fetchCollection";
 
-const getMiscItems = async (rapData: rapType[] = []): Promise<miscItems[]> => {
-  const data = await getCollection("MiscItems");
+const getMiscItems = async (rapData: RapData[] = []): Promise<MiscItems[]> => {
+  const data = await fetchCollection("MiscItems");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -25,8 +25,8 @@ const getMiscItems = async (rapData: rapType[] = []): Promise<miscItems[]> => {
       },
 
       rap: rapData.find((e) => e.id == miscItem.configName)?.rap ?? null,
-    } satisfies miscItems;
-  }) satisfies miscItems[];
+    } satisfies MiscItems;
+  }) satisfies MiscItems[];
 };
 
 export default getMiscItems;

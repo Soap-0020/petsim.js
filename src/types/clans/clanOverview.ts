@@ -1,4 +1,4 @@
-type clanOverview = {
+type ClanOverview = {
   created: number;
   name: string;
   memberCapacity: number;
@@ -10,4 +10,4 @@ type clanOverview = {
   icon: string;
 };
 
-export default clanOverview;
+export default ClanOverview;

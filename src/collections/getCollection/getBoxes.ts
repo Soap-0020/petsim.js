@@ -1,10 +1,10 @@
 import getImageURL from "../../other/getImageURL";
-import boxes from "../../types/collections/boxes";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Boxes from "../../types/collections/boxes";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getBoxes = async (rapData: rapType[] = []): Promise<boxes[]> => {
-  const data = await getCollection("Boxes");
+const getBoxes = async (rapData: RapData[] = []): Promise<Boxes[]> => {
+  const data = await fetchCollection("Boxes");
 
   rapData = rapData.filter((item) => item.category == "Box");
 
@@ -26,7 +26,7 @@ const getBoxes = async (rapData: rapType[] = []): Promise<boxes[]> => {
         return {
           name: icon.Name,
           icon: getImageURL(icon.Icon),
-        } satisfies boxes["icons"][number];
+        } satisfies Boxes["icons"][number];
       }),
 
       rap:
@@ -35,8 +35,8 @@ const getBoxes = async (rapData: rapType[] = []): Promise<boxes[]> => {
         })?.rap ?? null,
 
       rawData: box,
-    } satisfies boxes;
-  }) satisfies boxes[];
+    } satisfies Boxes;
+  }) satisfies Boxes[];
 };
 
 export default getBoxes;

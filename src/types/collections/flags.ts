@@ -1,10 +1,10 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type flags = {
+type Flags = {
   configName: string;
   category: "ZoneFlags";
   collection: "ZoneFlags";
-  rarity: rarity;
+  rarity: Rarity;
   color: string;
   duration: number;
   description: string;
@@ -14,4 +14,4 @@ type flags = {
   rawData: any;
 };
 
-export default flags;
+export default Flags;

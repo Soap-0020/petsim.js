@@ -1,4 +1,4 @@
-type merchents = {
+type Merchants = {
   configName: string;
   category: "Merchants";
   priceMultiplier: number;
@@ -14,4 +14,4 @@ type merchents = {
   rawData: any;
 };
 
-export default merchents;
+export default Merchants;

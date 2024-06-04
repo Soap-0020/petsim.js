@@ -1,4 +1,4 @@
-type buffs = {
+type Buffs = {
   category: "Buffs";
   collection: "Buffs";
   length: number;
@@ -9,4 +9,4 @@ type buffs = {
   rawData: any;
 };
 
-export default buffs;
+export default Buffs;

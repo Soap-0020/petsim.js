@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import ranks from "../../types/collections/ranks";
+import Ranks from "../../types/collections/ranks";
+import fetchCollection from "../fetchCollection";
 
-const getRanks = async (): Promise<ranks[]> => {
-  const data = await getCollection("Ranks");
+const getRanks = async (): Promise<Ranks[]> => {
+  const data = await fetchCollection("Ranks");
 
   return data.map((rank: any) => {
     return {
@@ -24,7 +24,7 @@ const getRanks = async (): Promise<ranks[]> => {
             tier: reward.Item._data.tn ?? null,
           },
           starsRequired: reward.StarsRequired,
-        } satisfies ranks["rewards"][number];
+        } satisfies Ranks["rewards"][number];
       }),
       goals: rank.configData.Goals.map((goalType: any) => {
         return goalType.map((goal: any) => {
@@ -33,11 +33,11 @@ const getRanks = async (): Promise<ranks[]> => {
             type: goal.Type,
             weight: goal.Weight,
             currency: goal.CurrencyID ?? null,
-          } satisfies ranks["goals"][number][number];
-        }) satisfies ranks["goals"][number];
+          } satisfies Ranks["goals"][number][number];
+        }) satisfies Ranks["goals"][number];
       }),
-    } satisfies ranks;
-  }) satisfies ranks[];
+    } satisfies Ranks;
+  }) satisfies Ranks[];
 };
 
 export default getRanks;

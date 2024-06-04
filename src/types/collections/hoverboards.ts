@@ -1,20 +1,20 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type rap = {
+type Rap = {
   normal: number | null;
   shiny: number | null;
 };
 
-type sounds = { [key: string]: string[] };
+type Sounds = { [key: string]: string[] };
 
-type hoverboards = {
+type Hoverboards = {
   configName: string;
   category: "Hoverboards";
   collection: "Hoverboards";
-  rarity: rarity;
+  rarity: Rarity;
   name: string;
   description: string;
-  sounds: sounds;
+  sounds: Sounds;
   icon: string;
   canBeShiny: boolean;
   productId: string | null;
@@ -27,8 +27,8 @@ type hoverboards = {
   rotationLimit: number | null;
   defaultJumpSpeedBoost: number | null;
   tradable: boolean;
-  rap: rap;
+  rap: Rap;
 
   rawData: any;
 };
-export default hoverboards;
+export default Hoverboards;

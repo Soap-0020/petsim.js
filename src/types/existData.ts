@@ -1,4 +1,4 @@
-type existData = {
+type ExistData = {
   category: "Pet";
   id: string;
   tier: number | null;
@@ -7,4 +7,4 @@ type existData = {
   exist: number;
 };
 
-export default existData;
+export default ExistData;

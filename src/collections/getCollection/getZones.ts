@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import zones from "../../types/collections/zones";
+import Zones from "../../types/collections/zones";
+import fetchCollection from "../fetchCollection";
 
-const getZones = async (): Promise<zones[]> => {
-  const data = await getCollection("Zones");
+const getZones = async (): Promise<Zones[]> => {
+  const data = await fetchCollection("Zones");
 
   return data.map((zone: any) => {
     const breakables: { [key: string]: any } = {};
@@ -14,13 +14,13 @@ const getZones = async (): Promise<zones[]> => {
           daycareIgnore:
             zone.configData.Breakables[e].Settings.DaycareIgnore ?? false,
           maximum: zone.configData.Breakables[e].Settings.Maximum,
-        } satisfies zones["breakables"][string]["settings"],
+        } satisfies Zones["breakables"][string]["settings"],
         data: zone.configData.Breakables[e].Data.map((data: any) => {
           return {
             worldNumber: data.WorldNumber,
             type: data.Type,
             weight: data.Weight,
-          } satisfies zones["breakables"][string]["data"][number];
+          } satisfies Zones["breakables"][string]["data"][number];
         }),
       };
     });
@@ -41,8 +41,8 @@ const getZones = async (): Promise<zones[]> => {
       worldNumber: zone.configData.WorldNumber,
       lighting: zone.configData.Lighting ?? {},
       breakables: breakables,
-    } satisfies zones;
-  }) satisfies zones[];
+    } satisfies Zones;
+  }) satisfies Zones[];
 };
 
 export default getZones;

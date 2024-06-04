@@ -1,66 +1,66 @@
-type donationData = {
+type DonationData = {
   userId: number;
   diamonds: number;
 };
 
-type diamondContributions = {
+type DiamondContributions = {
   sum: number;
-  data: donationData[];
+  data: DonationData[];
 };
 
-type member = {
+type Member = {
   userId: number;
   permissionLevel: number;
   joinTime: number;
 };
 
-type status = {
+type Status = {
   text: string | null;
   timestamp: number | null;
   username: string | null;
 };
 
-type medals = {
+type Medals = {
   bronze: number;
   silver: number;
   gold: number;
 };
 
-type pointContributions = {
+type PointContributions = {
   userId: number;
   points: number;
 };
 
-type contributions = {
+type Contributions = {
   [index: string]: number | undefined;
 };
 
-type goals = {
+type Goals = {
   type: number;
   amount: number;
   stars: number;
   progress: number;
   tier: number;
-  contributions: contributions;
+  contributions: Contributions;
 };
 
-type battle = {
+type Battle = {
   processedAwards: boolean;
   awardUserIds: number[];
   battleId: string;
   points: number;
-  pointContributions: pointContributions[];
+  pointContributions: PointContributions[];
   earnedMedal: "Bronze" | "Silver" | "Gold" | null;
 
-  goals: goals[];
+  goals: Goals[];
 };
 
-type battles = {
-  [index: string]: battle;
+type Battles = {
+  [index: string]: Battle;
 };
 
-type fullClan = {
-  battles: battles;
+type FullClan = {
+  battles: Battles;
   created: number;
   owner: number;
   name: string;
@@ -70,16 +70,16 @@ type fullClan = {
   officerCapacity: number;
   guildLevel: number;
   diamonds: number;
-  status: status;
+  status: Status;
   diamondContributions: {
-    allTime: diamondContributions;
+    allTime: DiamondContributions;
   };
-  members: member[];
+  members: Member[];
   countryCode: string;
   lastKickTimestamp: number | null;
-  medals: medals;
+  medals: Medals;
 
   rawData: any;
 };
 
-export default fullClan;
+export default FullClan;

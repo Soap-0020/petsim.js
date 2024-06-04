@@ -1,9 +1,9 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import randomEvents from "../../types/collections/randomEvents";
+import RandomEvents from "../../types/collections/randomEvents";
+import fetchCollection from "../fetchCollection";
 
-const getRandomEvents = async (): Promise<randomEvents[]> => {
-  const data = await getCollection("RandomEvents");
+const getRandomEvents = async (): Promise<RandomEvents[]> => {
+  const data = await fetchCollection("RandomEvents");
 
   return data.map((randomEvent: any) => {
     return {
@@ -27,8 +27,8 @@ const getRandomEvents = async (): Promise<randomEvents[]> => {
         main: randomEvent.configData.AreaWhitelist.Main,
         ice: randomEvent.configData.AreaWhitelist.Main_Ice,
       },
-    } satisfies randomEvents;
-  }) satisfies randomEvents[];
+    } satisfies RandomEvents;
+  }) satisfies RandomEvents[];
 };
 
 export default getRandomEvents;

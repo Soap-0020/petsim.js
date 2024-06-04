@@ -1,12 +1,12 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import sprinklers from "../../types/collections/sprinklers";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Sprinklers from "../../types/collections/sprinklers";
+import fetchCollection from "../fetchCollection";
 
 const getSprinklers = async (
-  rapData: rapType[] = []
-): Promise<sprinklers[]> => {
-  const data = await getCollection("Sprinklers");
+  rapData: RapData[] = []
+): Promise<Sprinklers[]> => {
+  const data = await fetchCollection("Sprinklers");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -30,8 +30,8 @@ const getSprinklers = async (
       rap:
         rapData.find((e) => e.id == sprinkler.configName.split("| ")[1])?.rap ??
         null,
-    } satisfies sprinklers;
-  }) satisfies sprinklers[];
+    } satisfies Sprinklers;
+  }) satisfies Sprinklers[];
 };
 
 export default getSprinklers;

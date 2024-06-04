@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import fruits from "../../types/collections/fruits";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Fruits from "../../types/collections/fruits";
+import fetchCollection from "../fetchCollection";
 
-const getFruits = async (rapData: rapType[] = []): Promise<fruits[]> => {
-  const data = await getCollection("Fruits");
+const getFruits = async (rapData: RapData[] = []): Promise<Fruits[]> => {
+  const data = await fetchCollection("Fruits");
 
   rapData = rapData.filter((item) => item.category == "Fruit");
 
@@ -27,14 +27,14 @@ const getFruits = async (rapData: rapType[] = []): Promise<fruits[]> => {
         return {
           amount: boost.Amount,
           type: boost.Type,
-        } satisfies fruits["boosts"][number];
+        } satisfies Fruits["boosts"][number];
       }),
       rap:
         rapData.find((rap) => rap.id == fruit.configData.DisplayName)?.rap ??
         null,
       rawData: fruit,
-    } satisfies fruits;
-  }) satisfies fruits[];
+    } satisfies Fruits;
+  }) satisfies Fruits[];
 };
 
 export default getFruits;

@@ -1,10 +1,10 @@
 import getImageURL from "../../other/getImageURL";
-import eggs from "../../types/collections/eggs";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Eggs from "../../types/collections/eggs";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getEggs = async (rapData: rapType[] = []): Promise<eggs[]> => {
-  const data = await getCollection("Eggs");
+const getEggs = async (rapData: RapData[] = []): Promise<Eggs[]> => {
+  const data = await fetchCollection("Eggs");
 
   rapData = rapData.filter((item) => item.category == "Egg");
 
@@ -43,7 +43,7 @@ const getEggs = async (rapData: rapType[] = []): Promise<eggs[]> => {
           name: pet[0],
           chance: pet[1],
           notification: pet[2] ?? null,
-        } satisfies eggs["pets"][number];
+        } satisfies Eggs["pets"][number];
       }),
       rarity: egg.configData.rarity
         ? {
@@ -58,8 +58,8 @@ const getEggs = async (rapData: rapType[] = []): Promise<eggs[]> => {
         })?.rap ?? null,
 
       rawData: egg,
-    } satisfies eggs;
-  }) satisfies eggs[];
+    } satisfies Eggs;
+  }) satisfies Eggs[];
 };
 
 export default getEggs;

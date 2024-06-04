@@ -1,14 +1,13 @@
 import apiError from "./errors/apiError";
-import unknownError from "./errors/unknownError";
-import jsonData from "./types/jsonData";
+import JsonData from "./types/jsonData";
 
 const getURL = async (url: string) => {
   const data = await fetch(url);
-  const json: jsonData = await data.json();
+  const json: JsonData = await data.json();
 
   if (json.error) throw new apiError(json.error);
   if (json.data) return json.data;
-  throw new unknownError();
+  throw new Error("Unknown Error");
 };
 
 export default getURL;

@@ -1,11 +1,11 @@
+import RapCallback from "../types/callbacks/rapCallback";
+import RapData from "../types/rapData";
 import getRAP from "./getRAP";
-import rapData from "../types/rapData";
-import rapCallback from "../types/rapCallback";
 
-const onRapChange = (callback: rapCallback) => {
+const onRapChange = (callback: RapCallback) => {
   (async () => {
     let index = 0;
-    const cache: rapData[] = [];
+    const cache: RapData[] = [];
     while (true) {
       const data = await getRAP();
 

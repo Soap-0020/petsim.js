@@ -1,23 +1,23 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type loot = {
+type Loot = {
   item: { id: string; amount: number; tier: number | null; maxAmount: number };
   weight: number;
 };
 
-type seeds = {
+type Seeds = {
   category: "Seeds";
   configName: string;
   collection: "Seeds";
   icon: string;
   growTime: number;
   description: string;
-  rarity: rarity;
+  rarity: Rarity;
   name: string;
 
-  loot: loot[];
+  loot: Loot[];
   rawData: any;
   rap: number | null;
 };
 
-export default seeds;
+export default Seeds;

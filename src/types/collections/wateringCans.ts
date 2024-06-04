@@ -1,4 +1,4 @@
-type walteringCans = {
+type WateringCans = {
   configName: string;
   category: "WateringCans";
   collection: "WateringCans";
@@ -12,4 +12,4 @@ type walteringCans = {
   rap: number | null;
 };
 
-export default walteringCans;
+export default WateringCans;

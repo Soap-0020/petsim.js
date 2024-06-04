@@ -1,11 +1,11 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type miscItems = {
+type MiscItems = {
   category: string;
   collection: "MiscItems";
   configName: string;
   name: string;
-  rarity: rarity;
+  rarity: Rarity;
   tradeable: boolean;
   icon: string;
   description: string;
@@ -13,4 +13,4 @@ type miscItems = {
   rap: number | null;
 };
 
-export default miscItems;
+export default MiscItems;

@@ -1,10 +1,10 @@
 import getImageURL from "../../other/getImageURL";
-import booths from "../../types/collections/booths";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Booths from "../../types/collections/booths";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getBooths = async (rapData: rapType[] = []): Promise<booths[]> => {
-  const data = await getCollection("Booths");
+const getBooths = async (rapData: RapData[] = []): Promise<Booths[]> => {
+  const data = await fetchCollection("Booths");
 
   rapData = rapData.filter((e) => e.category == "Booth");
 
@@ -27,8 +27,8 @@ const getBooths = async (rapData: rapType[] = []): Promise<booths[]> => {
           return item.id + " Booth" == booth.configData.DisplayName;
         })?.rap ?? null,
       rawData: booth,
-    } satisfies booths;
-  }) satisfies booths[];
+    } satisfies Booths;
+  }) satisfies Booths[];
 };
 
 export default getBooths;

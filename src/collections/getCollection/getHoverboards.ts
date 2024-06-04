@@ -1,12 +1,12 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import hoverboards from "../../types/collections/hoverboards";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Hoverboards from "../../types/collections/hoverboards";
+import fetchCollection from "../fetchCollection";
 
 const getHoverboards = async (
-  rapData: rapType[] = []
-): Promise<hoverboards[]> => {
-  const data = await getCollection("Hoverboards");
+  rapData: RapData[] = []
+): Promise<Hoverboards[]> => {
+  const data = await fetchCollection("Hoverboards");
 
   rapData = rapData.filter((item) => item.category == "Hoverboard");
 
@@ -54,8 +54,8 @@ const getHoverboards = async (
               e.shiny == false
           )?.rap ?? null,
       },
-    } satisfies hoverboards;
-  }) satisfies hoverboards[];
+    } satisfies Hoverboards;
+  }) satisfies Hoverboards[];
 };
 
 export default getHoverboards;

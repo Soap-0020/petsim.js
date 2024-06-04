@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import flags from "../../types/collections/flags";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import Flags from "../../types/collections/flags";
+import fetchCollection from "../fetchCollection";
 
-const getFlags = async (rapData: rapType[] = []): Promise<flags[]> => {
-  const data = await getCollection("ZoneFlags");
+const getFlags = async (rapData: RapData[] = []): Promise<Flags[]> => {
+  const data = await fetchCollection("ZoneFlags");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -26,8 +26,8 @@ const getFlags = async (rapData: rapType[] = []): Promise<flags[]> => {
       },
 
       rap: rapData.find((e) => e.id == flag.configData.Name)?.rap ?? null,
-    } satisfies flags;
-  }) satisfies flags[];
+    } satisfies Flags;
+  }) satisfies Flags[];
 };
 
 export default getFlags;

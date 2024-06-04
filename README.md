@@ -30,6 +30,10 @@ onExistChange((after, before) => {
 });
 ```
 
+## Types
+
+Most types are exported in the index file. There are types on most features.
+
 ## Other
 
 ```typescript

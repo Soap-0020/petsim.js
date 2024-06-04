@@ -1,14 +1,14 @@
 import getURL from "../getURL";
 import getImageURL from "../other/getImageURL";
-import clanOverview from "../types/clans/clanOverview";
-import searchDetails from "../types/clans/searchDetails";
+import ClanOverview from "../types/clans/clanOverview";
+import SearchDetails from "../types/clans/searchDetails";
 
 const getClans = async ({
   page = 1,
   pageSize = 10,
   sort = "Points",
   sortOrder = "desc",
-}: searchDetails = {}): Promise<clanOverview[]> => {
+}: SearchDetails = {}): Promise<ClanOverview[]> => {
   const data = await getURL(
     `https://biggamesapi.io/api/clans?page=${page}&pageSize=${pageSize}&sort=${sort}&sortOrder=${sortOrder}`
   );
@@ -24,8 +24,8 @@ const getClans = async ({
       points: clan.Points ?? null,
       rawData: clan,
       icon: getImageURL(clan.Icon),
-    } satisfies clanOverview;
-  }) satisfies clanOverview[];
+    } satisfies ClanOverview;
+  }) satisfies ClanOverview[];
 };
 
 export default getClans;

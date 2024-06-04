@@ -1,12 +1,12 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import walteringCans from "../../types/collections/walteringCans";
-import rapType from "../../types/rapData";
+import RapData from "../../types/rapData";
+import WateringCans from "../../types/collections/wateringCans";
+import fetchCollection from "../fetchCollection";
 
-const getWalteringCans = async (
-  rapData: rapType[] = []
-): Promise<walteringCans[]> => {
-  const data = await getCollection("WateringCans");
+const getWateringCans = async (
+  rapData: RapData[] = []
+): Promise<WateringCans[]> => {
+  const data = await fetchCollection("WateringCans");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -26,8 +26,8 @@ const getWalteringCans = async (
       rap:
         rapData.find((e) => e.id == walteringCan.configName.split("| ")[1])
           ?.rap ?? null,
-    } satisfies walteringCans;
-  }) satisfies walteringCans[];
+    } satisfies WateringCans;
+  }) satisfies WateringCans[];
 };
 
-export default getWalteringCans;
+export default getWateringCans;

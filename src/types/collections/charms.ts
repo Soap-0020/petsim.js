@@ -1,16 +1,16 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type tiers = {
+type Tiers = {
   description: string;
   name: string;
   power: number;
-  rarity: rarity;
+  rarity: Rarity;
 
   tier: number;
   rap: number | null;
 };
 
-type charms = {
+type Charms = {
   category: "Charms";
   collection: "Charms";
   baseTier: number;
@@ -18,8 +18,8 @@ type charms = {
   icon: string;
   configName: string;
 
-  tiers: tiers[];
+  tiers: Tiers[];
   rawData: any;
 };
 
-export default charms;
+export default Charms;

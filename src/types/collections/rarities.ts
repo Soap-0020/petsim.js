@@ -1,4 +1,4 @@
-type rarities = {
+type Rarities = {
   category: "Rarity";
   collection: "Rarity";
   configName: string;
@@ -9,4 +9,4 @@ type rarities = {
   rawData: any;
 };
 
-export default rarities;
+export default Rarities;

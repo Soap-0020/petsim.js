@@ -1,12 +1,12 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import mastery from "../../types/collections/mastery";
+import Mastery from "../../types/collections/mastery";
+import fetchCollection from "../fetchCollection";
 
-const getMastery = async (): Promise<mastery[]> => {
-  const data = await getCollection("Mastery");
+const getMastery = async (): Promise<Mastery[]> => {
+  const data = await fetchCollection("Mastery");
 
   return data.map((mastery: any) => {
-    const perks: { [key: string]: mastery["perks"][number] } = {};
+    const perks: { [key: string]: Mastery["perks"][number] } = {};
 
     Object.keys(mastery.configData.Perks).forEach((e) => {
       perks[e] = mastery.configData.Perks[e].map((e: any) => {
@@ -15,7 +15,7 @@ const getMastery = async (): Promise<mastery[]> => {
           text: e.Text,
           title: e.Title,
           power: e.Power ?? null,
-        } satisfies mastery["perks"][number][number];
+        } satisfies Mastery["perks"][number][number];
       });
     });
 
@@ -28,8 +28,8 @@ const getMastery = async (): Promise<mastery[]> => {
       rawData: mastery,
       description: mastery.configData.Desc,
       perks: perks,
-    } satisfies mastery;
-  }) satisfies mastery[];
+    } satisfies Mastery;
+  }) satisfies Mastery[];
 };
 
 export default getMastery;

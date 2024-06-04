@@ -1,22 +1,22 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type productIds = {
+type ProductIds = {
   [index: string]: number | undefined;
 };
 
-type pets = {
+type Pets = {
   name: string;
   chance: number;
   notification: string | null;
 };
 
-type eggs = {
+type Eggs = {
   collection: "Eggs";
   category: string;
 
   name: string;
   configName: string;
-  rarity: rarity | null;
+  rarity: Rarity | null;
   disableGold: boolean;
   disableRainbow: boolean;
   rainbowChance: number | null;
@@ -24,13 +24,13 @@ type eggs = {
   goldChance: number | null;
   disableModifiers: boolean;
   icon: string;
-  pets: pets[];
+  pets: Pets[];
 
   eggNumber: number | null;
   worldNumber: number | null;
   currency: string | null;
 
-  productIds: productIds;
+  productIds: ProductIds;
   rap: number | null;
   overrideCost: number | null;
   isCustomEgg: boolean;
@@ -38,4 +38,4 @@ type eggs = {
   rawData: any;
 };
 
-export default eggs;
+export default Eggs;

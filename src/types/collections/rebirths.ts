@@ -1,11 +1,11 @@
-type unlocks = {
+type Unlocks = {
   title: string;
   icon: string;
   description: string;
   guiTitle: string | null;
 };
 
-type rebirths = {
+type Rebirths = {
   configName: string;
   category: "Rebirths";
   collection: "Rebirths";
@@ -14,8 +14,8 @@ type rebirths = {
   boostDescription: string;
   zoneRequired: number;
   rebirth: number;
-  unlocks: unlocks[];
+  unlocks: Unlocks[];
   rawData: any;
 };
 
-export default rebirths;
+export default Rebirths;

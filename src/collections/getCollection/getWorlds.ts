@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import worlds from "../../types/collections/worlds";
+import Worlds from "../../types/collections/worlds";
+import fetchCollection from "../fetchCollection";
 
-const getWorlds = async (): Promise<worlds[]> => {
-  const data = await getCollection("Worlds");
+const getWorlds = async (): Promise<Worlds[]> => {
+  const data = await fetchCollection("Worlds");
 
   return data.map((world: any) => {
     return {
@@ -15,8 +15,8 @@ const getWorlds = async (): Promise<worlds[]> => {
       additionalMusic: world.configData.AdditionalMusic ?? [],
       rawData: world,
       world: world.configData.WorldNumber,
-    } satisfies worlds;
-  }) satisfies worlds[];
+    } satisfies Worlds;
+  }) satisfies Worlds[];
 };
 
 export default getWorlds;

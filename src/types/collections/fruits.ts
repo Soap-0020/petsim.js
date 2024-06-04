@@ -1,24 +1,24 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type boost = {
+type Boost = {
   amount: number;
   type: string;
 };
 
-type fruits = {
+type Fruits = {
   category: "Fruits";
   collection: "Fruits";
   name: string;
   configName: string;
-  rarity: rarity;
+  rarity: Rarity;
   duration: number;
   ignoreFruitMachine: boolean;
   description: string;
   icon: string;
-  boosts: boost[];
+  boosts: Boost[];
 
   rap: number | null;
   rawData: any;
 };
 
-export default fruits;
+export default Fruits;

@@ -1,10 +1,10 @@
 import getImageURL from "../../other/getImageURL";
-import enchants from "../../types/collections/enchants";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Enchants from "../../types/collections/enchants";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getEnchants = async (rapData: rapType[] = []): Promise<enchants[]> => {
-  const data = await getCollection("Enchants");
+const getEnchants = async (rapData: RapData[] = []): Promise<Enchants[]> => {
+  const data = await fetchCollection("Enchants");
 
   rapData = rapData.filter((item) => item.category == "Enchant");
 
@@ -41,12 +41,12 @@ const getEnchants = async (rapData: rapType[] = []): Promise<enchants[]> => {
                 rapItem.tier == tier
               );
             })?.rap ?? null,
-        } satisfies enchants["tiers"][number];
+        } satisfies Enchants["tiers"][number];
       }),
 
       rawData: enchant,
-    } satisfies enchants;
-  }) satisfies enchants[];
+    } satisfies Enchants;
+  }) satisfies Enchants[];
 };
 
 export default getEnchants;

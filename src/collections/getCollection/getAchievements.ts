@@ -1,9 +1,9 @@
 import getImageURL from "../../other/getImageURL";
-import achievements from "../../types/collections/achievements";
-import getCollection from "../getCollection";
+import Achievements from "../../types/collections/achievements";
+import fetchCollection from "../fetchCollection";
 
-const getAchievements = async (): Promise<achievements[]> => {
-  const data = await getCollection("Achievements");
+const getAchievements = async (): Promise<Achievements[]> => {
+  const data = await fetchCollection("Achievements");
 
   return data.map((achievement: any) => {
     return {
@@ -23,7 +23,7 @@ const getAchievements = async (): Promise<achievements[]> => {
               tier: reward.Reward._data.tn ?? null,
               variant: reward.Reward._data.pt ?? null,
               shiny: reward.Reward._data.sh ?? false,
-            } satisfies achievements["tiers"][number]["rewards"][number];
+            } satisfies Achievements["tiers"][number]["rewards"][number];
           }),
           difficulty: {
             name: tier.Difficulty.Name,
@@ -35,10 +35,10 @@ const getAchievements = async (): Promise<achievements[]> => {
 
           hidden: tier.Hidden,
           description: tier.Desc,
-        } satisfies achievements["tiers"][number];
+        } satisfies Achievements["tiers"][number];
       }),
-    } satisfies achievements;
-  }) satisfies achievements[];
+    } satisfies Achievements;
+  }) satisfies Achievements[];
 };
 
 export default getAchievements;

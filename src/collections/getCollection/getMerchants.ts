@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import merchents from "../../types/collections/merchents";
+import Merchants from "../../types/collections/merchants";
+import fetchCollection from "../fetchCollection";
 
-const getMerchents = async (): Promise<merchents[]> => {
-  const data = await getCollection("Merchants");
+const getMerchants = async (): Promise<Merchants[]> => {
+  const data = await fetchCollection("Merchants");
 
   return data.map((merchent: any) => {
     return {
@@ -19,8 +19,8 @@ const getMerchents = async (): Promise<merchents[]> => {
       priceMultiplier: merchent.configData.PriceMult,
       hideNotification: merchent.configData.HideNotification ?? false,
       hideRespect: merchent.configData.HideRespect ?? false,
-    } satisfies merchents;
-  }) satisfies merchents[];
+    } satisfies Merchants;
+  }) satisfies Merchants[];
 };
 
-export default getMerchents;
+export default getMerchants;

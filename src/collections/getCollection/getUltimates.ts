@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import ultimates from "../../types/collections/ultimates";
-import rapType from "../../types/rapData";
+import Ultimates from "../../types/collections/ultimates";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getUltimates = async (rapData: rapType[] = []): Promise<ultimates[]> => {
-  const data = await getCollection("Ultimates");
+const getUltimates = async (rapData: RapData[] = []): Promise<Ultimates[]> => {
+  const data = await fetchCollection("Ultimates");
 
   rapData = rapData.filter((item) => item.category == "Ultimate");
 
@@ -31,8 +31,8 @@ const getUltimates = async (rapData: rapType[] = []): Promise<ultimates[]> => {
       rap:
         rapData.find((e) => e.id == ultimate.configData.DisplayName)?.rap ??
         null,
-    } satisfies ultimates;
-  }) satisfies ultimates[];
+    } satisfies Ultimates;
+  }) satisfies Ultimates[];
 };
 
 export default getUltimates;

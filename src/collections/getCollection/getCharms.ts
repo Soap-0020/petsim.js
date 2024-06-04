@@ -1,10 +1,10 @@
 import getImageURL from "../../other/getImageURL";
-import charms from "../../types/collections/charms";
-import rapType from "../../types/rapData";
-import getCollection from "../getCollection";
+import Charms from "../../types/collections/charms";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getCharms = async (rapData: rapType[] = []): Promise<charms[]> => {
-  const data = await getCollection("Charms");
+const getCharms = async (rapData: RapData[] = []): Promise<Charms[]> => {
+  const data = await fetchCollection("Charms");
 
   rapData = rapData.filter((item) => item.category == "Charm");
 
@@ -36,10 +36,10 @@ const getCharms = async (rapData: rapType[] = []): Promise<charms[]> => {
                 item.id + " Charm" == charmTier.DisplayName && item.tier == tier
               );
             })?.rap ?? null,
-        } satisfies charms["tiers"][number];
+        } satisfies Charms["tiers"][number];
       }),
-    } satisfies charms;
-  }) satisfies charms[];
+    } satisfies Charms;
+  }) satisfies Charms[];
 };
 
 export default getCharms;

@@ -1,4 +1,4 @@
-type rapData = {
+type RapData = {
   category: string;
   id: string;
   tier: number | null;
@@ -7,4 +7,4 @@ type rapData = {
   rap: number;
 };
 
-export default rapData;
+export default RapData;

@@ -1,16 +1,16 @@
-type perk = {
+type Perk = {
   level: number;
   text: string;
   title: string;
   power: number | null;
 };
 
-type perks = { [key: string]: perk[] };
+type Perks = { [key: string]: Perk[] };
 
-type mastery = {
+type Mastery = {
   configName: string;
   category: "Mastery";
-  perks: perks;
+  perks: Perks;
   name: string;
   icon: string;
   description: string;
@@ -19,4 +19,4 @@ type mastery = {
   collection: "Mastery";
 };
 
-export default mastery;
+export default Mastery;

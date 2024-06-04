@@ -1,8 +1,8 @@
-import getCollection from "../getCollection";
-import rarities from "../../types/collections/rarities";
+import Rarities from "../../types/collections/rarities";
+import fetchCollection from "../fetchCollection";
 
-const getRarities = async (): Promise<rarities[]> => {
-  const data = await getCollection("Rarity");
+const getRarities = async (): Promise<Rarities[]> => {
+  const data = await fetchCollection("Rarity");
 
   return data.map((rarity: any) => {
     return {
@@ -14,8 +14,8 @@ const getRarities = async (): Promise<rarities[]> => {
       announce: rarity.configData.Announce,
       rawData: rarity,
       number: rarity.configData.RarityNumber,
-    } satisfies rarities;
-  }) satisfies rarities[];
+    } satisfies Rarities;
+  }) satisfies Rarities[];
 };
 
 export default getRarities;

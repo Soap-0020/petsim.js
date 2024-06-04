@@ -1,4 +1,4 @@
-type reward = {
+type Reward = {
   id: string;
   amount: number;
   tier: number | null;
@@ -6,14 +6,14 @@ type reward = {
   shiny: boolean;
 };
 
-type difficulty = {
+type Difficulty = {
   name: string;
   order: number;
 };
 
-type tiers = {
-  rewards: reward[];
-  difficulty: difficulty;
+type Tiers = {
+  rewards: Reward[];
+  difficulty: Difficulty;
   title: string;
   amount: number;
   manuallyNotify: number | null;
@@ -22,15 +22,15 @@ type tiers = {
   description: string;
 };
 
-type achievements = {
+type Achievements = {
   category: "Achievements";
   collection: "Achievements";
   name: string;
   configName: string;
-  tiers: tiers[];
+  tiers: Tiers[];
   icon: string;
 
   rawData: any;
 };
 
-export default achievements;
+export default Achievements;

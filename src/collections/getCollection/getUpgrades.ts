@@ -1,9 +1,9 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import upgrades from "../../types/collections/upgrades";
+import Upgrades from "../../types/collections/upgrades";
+import fetchCollection from "../fetchCollection";
 
-const getUpgrades = async (): Promise<upgrades[]> => {
-  const data = await getCollection("Upgrades");
+const getUpgrades = async (): Promise<Upgrades[]> => {
+  const data = await fetchCollection("Upgrades");
 
   return data.map((upgrade: any) => {
     return {
@@ -37,7 +37,7 @@ const getUpgrades = async (): Promise<upgrades[]> => {
               value: tier.value,
               tinyImage: getImageURL(tier.tinyImage),
               name: tier.tierName,
-            } satisfies upgrades["tierCurrencies"][number]["tiers"][number];
+            } satisfies Upgrades["tierCurrencies"][number]["tiers"][number];
           }),
           name: currency.DisplayName,
           maxAmount: currency.MaxAmount,
@@ -46,12 +46,12 @@ const getUpgrades = async (): Promise<upgrades[]> => {
             return {
               value: bagTier.value,
               image: getImageURL(bagTier.image),
-            } satisfies upgrades["tierCurrencies"][number]["bagTiers"][number];
+            } satisfies Upgrades["tierCurrencies"][number]["bagTiers"][number];
           }),
-        } satisfies upgrades["tierCurrencies"][number];
+        } satisfies Upgrades["tierCurrencies"][number];
       }),
-    } satisfies upgrades;
-  }) satisfies upgrades[];
+    } satisfies Upgrades;
+  }) satisfies Upgrades[];
 };
 
 export default getUpgrades;

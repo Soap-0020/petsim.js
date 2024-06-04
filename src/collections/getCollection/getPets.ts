@@ -1,14 +1,14 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import pets from "../../types/collections/pets";
-import rapType from "../../types/rapData";
-import existType from "../../types/existData";
+import RapData from "../../types/rapData";
+import ExistData from "../../types/existData";
+import Pets from "../../types/collections/pets";
+import fetchCollection from "../fetchCollection";
 
 const getPets = async (
-  rapData: rapType[] = [],
-  existData: existType[] = []
-): Promise<pets[]> => {
-  const data = await getCollection("Pets");
+  rapData: RapData[] = [],
+  existData: ExistData[] = []
+): Promise<Pets[]> => {
+  const data = await fetchCollection("Pets");
 
   rapData = rapData.filter((item) => item.category == "Pet");
 
@@ -48,7 +48,7 @@ const getPets = async (
             shiny: e.shiny,
             variant: e.variant ?? null,
             rap: e.rap,
-          } satisfies pets["rap"][number];
+          } satisfies Pets["rap"][number];
         }),
 
       exist: existData
@@ -58,11 +58,11 @@ const getPets = async (
             shiny: e.shiny,
             variant: e.variant ?? null,
             exist: e.exist,
-          } satisfies pets["exist"][number];
+          } satisfies Pets["exist"][number];
         }),
       rawData: pet,
-    } satisfies pets;
-  }) satisfies pets[];
+    } satisfies Pets;
+  }) satisfies Pets[];
 };
 
 export default getPets;

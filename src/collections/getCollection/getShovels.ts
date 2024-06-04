@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
-import shovels from "../../types/collections/shovels";
 import getImageURL from "../../other/getImageURL";
-import rapType from "../../types/rapData";
+import Shovels from "../../types/collections/shovels";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getShovels = async (rapData: rapType[] = []): Promise<shovels[]> => {
-  const data = await getCollection("Shovels");
+const getShovels = async (rapData: RapData[] = []): Promise<Shovels[]> => {
+  const data = await fetchCollection("Shovels");
 
   rapData = rapData.filter((item) => item.category == "Misc");
 
@@ -21,8 +21,8 @@ const getShovels = async (rapData: rapType[] = []): Promise<shovels[]> => {
       rawData: shovel,
       rap:
         rapData.find((e) => e.id == shovel.configData.DisplayName)?.rap ?? null,
-    } satisfies shovels;
-  }) satisfies shovels[];
+    } satisfies Shovels;
+  }) satisfies Shovels[];
 };
 
 export default getShovels;

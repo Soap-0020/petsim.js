@@ -1,8 +1,8 @@
-type ambience = {
+type Ambience = {
   soundId: string | null;
 };
 
-type breakable = {
+type Breakable = {
   settings: {
     respawnTime: number;
     daycareIgnore: boolean;
@@ -15,23 +15,23 @@ type breakable = {
   }[];
 };
 
-type breakables = { [key: string]: breakable };
+type Breakables = { [key: string]: Breakable };
 
-type lighting = { [key: string]: any };
+type Lighting = { [key: string]: any };
 
-type zones = {
+type Zones = {
   configName: string;
   category: string;
   collection: "Zones";
   name: string;
-  ambience: ambience;
-  breakables: breakables;
+  ambience: Ambience;
+  breakables: Breakables;
   maximumAvailableEgg: number;
   worldNumber: number;
   currency: string;
   zoneNumber: number;
-  lighting: lighting;
+  lighting: Lighting;
   rawData: any;
 };
 
-export default zones;
+export default Zones;

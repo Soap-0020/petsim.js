@@ -1,4 +1,4 @@
-type jsonData = {
+type JsonData = {
   status: string;
   data?: any;
   error?: {
@@ -6,4 +6,4 @@ type jsonData = {
   };
 };
 
-export default jsonData;
+export default JsonData;

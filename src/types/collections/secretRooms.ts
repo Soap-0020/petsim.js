@@ -1,4 +1,4 @@
-type secretRooms = {
+type SecretRooms = {
   configName: string;
   category: "SecretRooms";
   collection: "SecretRooms";
@@ -8,4 +8,4 @@ type secretRooms = {
   rawData: any;
 };
 
-export default secretRooms;
+export default SecretRooms;

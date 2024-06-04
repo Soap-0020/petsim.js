@@ -1,7 +1,7 @@
-import rarity from "../rarity";
+import Rarity from "../rarity";
 
-type tiers = {
-  rarity: rarity;
+type Tiers = {
+  rarity: Rarity;
   power: number;
   description: string;
   time: number;
@@ -12,7 +12,7 @@ type tiers = {
   tier: number;
 };
 
-type potions = {
+type Potions = {
   configName: string;
   category: "Potions";
   collection: "Potions";
@@ -20,9 +20,9 @@ type potions = {
   maxTier: number;
   primaryColor: string;
   secondaryColor: string;
-  tiers: tiers[];
+  tiers: Tiers[];
 
   rawData: any;
 };
 
-export default potions;
+export default Potions;

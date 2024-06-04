@@ -1,10 +1,10 @@
-import getCollection from "../getCollection";
 import getImageURL from "../../other/getImageURL";
-import lootboxes from "../../types/collections/lootboxes";
-import rapType from "../../types/rapData";
+import Lootboxes from "../../types/collections/lootboxes";
+import RapData from "../../types/rapData";
+import fetchCollection from "../fetchCollection";
 
-const getLootboxes = async (rapData: rapType[] = []): Promise<lootboxes[]> => {
-  const data = await getCollection("Lootboxes");
+const getLootboxes = async (rapData: RapData[] = []): Promise<Lootboxes[]> => {
+  const data = await fetchCollection("Lootboxes");
 
   rapData = rapData.filter((item) => item.category == "Lootbox");
 
@@ -23,8 +23,8 @@ const getLootboxes = async (rapData: rapType[] = []): Promise<lootboxes[]> => {
       },
       rawData: lootbox,
       rap: rapData.find((e) => e.id == lootbox.configName)?.rap ?? null,
-    } satisfies lootboxes;
-  }) satisfies lootboxes[];
+    } satisfies Lootboxes;
+  }) satisfies Lootboxes[];
 };
 
 export default getLootboxes;

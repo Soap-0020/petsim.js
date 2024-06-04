@@ -1,11 +1,11 @@
-import existData from "../types/existData";
+import ExistCallback from "../types/callbacks/existCallback";
+import ExistData from "../types/existData";
 import getExist from "./getExist";
-import existCallback from "../types/existCallback";
 
-const onExistChange = (callback: existCallback) => {
+const onExistChange = (callback: ExistCallback) => {
   (async () => {
     let index = 0;
-    const cache: existData[] = [];
+    const cache: ExistData[] = [];
     while (true) {
       const data = await getExist();
 

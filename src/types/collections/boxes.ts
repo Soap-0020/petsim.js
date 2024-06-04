@@ -1,11 +1,11 @@
 import rarity from "../rarity";
 
-type icons = {
+type Icons = {
   name: string;
   icon: string;
 };
 
-type boxes = {
+type Boxes = {
   category: "Boxes";
   collection: "Boxes";
   capacity: number;
@@ -13,10 +13,10 @@ type boxes = {
   configName: string;
   description: string;
   rarity: rarity;
-  icons: icons[];
+  icons: Icons[];
 
   rap: number | null;
   rawData: any;
 };
 
-export default boxes;
+export default Boxes;

@@ -1,8 +1,8 @@
-import clanBattles from "../../types/collections/clanBattles";
-import getCollection from "../getCollection";
+import ClanBattles from "../../types/collections/clanBattles";
+import fetchCollection from "../fetchCollection";
 
-const getClanBattles = async (): Promise<clanBattles[]> => {
-  const data = await getCollection("GuildBattles");
+const getClanBattles = async (): Promise<ClanBattles[]> => {
+  const data = await fetchCollection("GuildBattles");
 
   return data.map((clanBattle: any) => {
     return {
@@ -16,20 +16,20 @@ const getClanBattles = async (): Promise<clanBattles[]> => {
       rewards: {
         bronze: clanBattle.configData.Rewards.Bronze.map(
           (reward: any) =>
-            reward._data.id satisfies clanBattles["rewards"]["bronze"]
+            reward._data.id satisfies ClanBattles["rewards"]["bronze"]
         ),
         silver: clanBattle.configData.Rewards.Silver.map(
           (reward: any) =>
-            reward._data.id satisfies clanBattles["rewards"]["silver"]
+            reward._data.id satisfies ClanBattles["rewards"]["silver"]
         ),
         gold: clanBattle.configData.Rewards.Gold.map(
           (reward: any) =>
-            reward._data.id satisfies clanBattles["rewards"]["gold"]
+            reward._data.id satisfies ClanBattles["rewards"]["gold"]
         ),
       },
       rawData: clanBattle,
-    } satisfies clanBattles;
-  }) satisfies clanBattles[];
+    } satisfies ClanBattles;
+  }) satisfies ClanBattles[];
 };
 
 export default getClanBattles;
