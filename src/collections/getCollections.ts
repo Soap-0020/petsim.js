@@ -1,7 +1,7 @@
 import getURL from "../getURL";
 
-const getCollections = async () => {
-  return await getURL("https://biggamesapi.io/api/collections");
+const getCollections = async (): Promise<string[]> => {
+  return await getURL("collections");
 };
 
 export default getCollections;

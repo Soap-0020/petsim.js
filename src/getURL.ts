@@ -1,8 +1,8 @@
 import apiError from "./errors/apiError";
 import JsonData from "./types/jsonData";
 
-const getURL = async (url: string) => {
-  const data = await fetch(url);
+const getURL = async (path: string) => {
+  const data = await fetch(`https://ps99.biggamesapi.io/api/${path}`);
   const json: JsonData = await data.json();
 
   if (json.error) throw new apiError(json.error);
